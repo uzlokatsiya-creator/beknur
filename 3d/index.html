@@ -18,7 +18,8 @@ h1,h2,h3{font-family:var(--display);font-weight:600;margin:0;line-height:1.05;te
 a{color:inherit}
 button{font-family:inherit}
 :focus-visible{outline:2px solid var(--lav);outline-offset:3px}
-#gl{position:fixed;inset:0;z-index:0;display:block;width:100%;height:100%}
+#gl{position:fixed;inset:0;z-index:0;display:block;width:100%;height:100%;background-color:#fff;background-image:linear-gradient(rgba(31,95,191,.13) 1px,transparent 1px),linear-gradient(90deg,rgba(31,95,191,.13) 1px,transparent 1px),linear-gradient(rgba(31,95,191,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(31,95,191,.06) 1px,transparent 1px);background-size:96px 96px,96px 96px,24px 24px,24px 24px}
+body.explore #gl{background:var(--bg)}
 #css3d{position:fixed;inset:0;z-index:1}
 .vignette{position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse at 50% 40%,transparent 40%,rgba(0,0,0,.65))}
 
@@ -1199,11 +1200,11 @@ function webglOK(){try{const c=document.createElement('canvas');return !!(window
 
 function initGL(){
  const canvas=document.getElementById('gl');
- const renderer=new THREE.WebGLRenderer({canvas,antialias:true,alpha:false,powerPreference:'high-performance'});
+ const renderer=new THREE.WebGLRenderer({canvas,antialias:true,alpha:true,powerPreference:'high-performance'});
  renderer.setPixelRatio(Math.min(devicePixelRatio,2));
  renderer.outputEncoding=THREE.sRGBEncoding;renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=1.05;
  const css=new THREE.CSS3DRenderer();css.domElement.id='css3d';document.body.insertBefore(css.domElement,document.getElementById('content'));
- const scene=new THREE.Scene();scene.background=new THREE.Color(0x050507);
+ const scene=new THREE.Scene();scene.background=null;renderer.setClearColor(0xffffff,0);
  const cssScene=new THREE.Scene();
  const pm=new THREE.PMREMGenerator(renderer);scene.environment=pm.fromScene(new THREE.RoomEnvironment(),.04).texture;pm.dispose();
  const camera=new THREE.PerspectiveCamera(30,1,10,8000);
@@ -1217,7 +1218,7 @@ function initGL(){
  const root=new THREE.Group(),cssRoot=new THREE.Group();scene.add(root);cssScene.add(cssRoot);
  const tilt=new THREE.Group(),cssTilt=new THREE.Group();root.add(tilt);cssRoot.add(cssTilt);
 
- const baseMat=()=>new THREE.MeshPhysicalMaterial({color:0xe2efff,metalness:0,roughness:.22,transmission:.12,thickness:30,ior:1.5,clearcoat:1,clearcoatRoughness:.06,iridescence:.15,iridescenceIOR:1.35,iridescenceThicknessRange:[180,620],envMapIntensity:1.1,transparent:true,opacity:1,specularIntensity:1});
+ const baseMat=()=>new THREE.MeshPhysicalMaterial({color:0xd4e6ff,metalness:0,roughness:.22,transmission:.12,thickness:30,ior:1.5,clearcoat:1,clearcoatRoughness:.06,iridescence:.15,iridescenceIOR:1.35,iridescenceThicknessRange:[180,620],envMapIntensity:1.1,transparent:true,opacity:1,specularIntensity:1});
  // glow sprite for cursor
  const gc=document.createElement('canvas');gc.width=gc.height=128;const gx=gc.getContext('2d');const gr=gx.createRadialGradient(64,64,0,64,64,64);gr.addColorStop(0,'rgba(200,184,255,.85)');gr.addColorStop(.4,'rgba(185,166,255,.25)');gr.addColorStop(1,'rgba(185,166,255,0)');gx.fillStyle=gr;gx.fillRect(0,0,128,128);
  const glowTex=new THREE.CanvasTexture(gc);

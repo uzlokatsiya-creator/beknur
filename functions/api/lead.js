@@ -1,24 +1,23 @@
-import { json } from "../lib/util.mjs";
+import { json } from "../../lib/util.js";
 
-// POST /api/lead  { name, phone, service, message, lang, company(honeypot) }
+// POST /api/lead { name, phone, service, message, lang, company(honeypot) }
 // Sends the request to Telegram: TELEGRAM_BOT_TOKEN + TELEGRAM_CHAT_ID (comma-separated for several chats).
 const clean = (v, n) => String(v ?? "").replace(/[<>&]/g, (c) => ({ "<": "&lt;", ">": "&gt;", "&": "&amp;" }[c])).trim().slice(0, n);
 
-export default async (req) => {
-  if (req.method !== "POST") return json({ error: "method" }, 405);
+export async function onRequestPost({ request, env }) {
   let b;
-  try { b = await req.json(); } catch { return json({ error: "bad json" }, 400); }
-  if (b.company) return json({ ok: true }); // bot filled the hidden field
+  try { b = await request.json(); } catch { return json({ error: "bad json" }, 400); }
+  if (b.company) return json({ ok: true }); // a bot filled the hidden field
   const name = clean(b.name, 80), phone = clean(b.phone, 30), service = clean(b.service, 120), message = clean(b.message, 800);
   if (!name || phone.replace(/\D/g, "").length < 7) return json({ error: "name and phone required" }, 400);
 
-  const token = process.env.TELEGRAM_BOT_TOKEN, chats = (process.env.TELEGRAM_CHAT_ID || "").split(",").map((s) => s.trim()).filter(Boolean);
+  const token = env.TELEGRAM_BOT_TOKEN;
+  const chats = String(env.TELEGRAM_CHAT_ID || "").split(",").map((s) => s.trim()).filter(Boolean);
   if (!token || !chats.length) return json({ error: "Telegram is not configured" }, 500);
 
   const time = new Date().toLocaleString("ru-RU", { timeZone: "Asia/Samarkand" });
   const text = [
     "🩺 <b>Yangi ariza — saytdan</b>",
-    "",
     `👤 <b>Ism:</b> ${name}`,
     `📞 <b>Telefon:</b> ${phone}`,
     service && `💉 <b>Xizmat:</b> ${service}`,
@@ -35,6 +34,4 @@ export default async (req) => {
     }).then((r) => r.ok).catch(() => false)));
 
   return results.some(Boolean) ? json({ ok: true }) : json({ error: "telegram failed" }, 502);
-};
-
-export const config = { path: "/api/lead" };
+}

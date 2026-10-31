@@ -123,7 +123,7 @@ async function onRequestPost3({ request, env }) {
   const name = clean(b.name, 80), phone = clean(b.phone, 30), service = clean(b.service, 120), message = clean(b.message, 800);
   if (!name || phone.replace(/\D/g, "").length < 7) return json({ error: "name and phone required" }, 400);
   const token = env.TELEGRAM_BOT_TOKEN;
-  const chats = String(env.TELEGRAM_CHAT_ID || "").split(",").map((s) => s.trim()).filter(Boolean);
+  const chats = [...new Set([env.TELEGRAM_CHAT_ID, env.TELEGRAM_GROUP_ID].join(",").split(",").map((s) => s.trim()).filter(Boolean))];
   if (!token || !chats.length) return json({ error: "Telegram is not configured" }, 500);
   const time = (/* @__PURE__ */ new Date()).toLocaleString("ru-RU", { timeZone: "Asia/Samarkand" });
   const text = [

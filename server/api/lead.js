@@ -1,7 +1,7 @@
 import { json } from "../../lib/util.js";
 
 // POST /api/lead { name, phone, service, message, lang, company(honeypot) }
-// Sends the request to Telegram: TELEGRAM_BOT_TOKEN + TELEGRAM_CHAT_ID (comma-separated for several chats).
+// Sends the request to Telegram: TELEGRAM_BOT_TOKEN + TELEGRAM_CHAT_ID (personal) and/or TELEGRAM_GROUP_ID (group, -100...).
 const clean = (v, n) => String(v ?? "").replace(/[<>&]/g, (c) => ({ "<": "&lt;", ">": "&gt;", "&": "&amp;" }[c])).trim().slice(0, n);
 
 export async function onRequestPost({ request, env }) {
@@ -12,7 +12,8 @@ export async function onRequestPost({ request, env }) {
   if (!name || phone.replace(/\D/g, "").length < 7) return json({ error: "name and phone required" }, 400);
 
   const token = env.TELEGRAM_BOT_TOKEN;
-  const chats = String(env.TELEGRAM_CHAT_ID || "").split(",").map((s) => s.trim()).filter(Boolean);
+  // personal chat(s) + group(s); each may hold several IDs separated by commas
+  const chats = [...new Set([env.TELEGRAM_CHAT_ID, env.TELEGRAM_GROUP_ID].join(",").split(",").map((s) => s.trim()).filter(Boolean))];
   if (!token || !chats.length) return json({ error: "Telegram is not configured" }, 500);
 
   const time = new Date().toLocaleString("ru-RU", { timeZone: "Asia/Samarkand" });

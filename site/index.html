@@ -360,6 +360,25 @@ footer .wrap{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
 .rev small{display:block;font-size:13px;opacity:.75}
 @media(max-width:1100px){.tline{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:560px){.tline{grid-template-columns:1fr}.rev{width:100%}}
+
+.phw{display:flex;align-items:stretch;border:1px solid var(--line);border-radius:14px;background:var(--bg);overflow:hidden;transition:border-color .3s,background .3s,box-shadow .3s}
+.phw:focus-within{border-color:var(--blue);background:#fff;box-shadow:0 0 0 4px rgba(45,107,255,.12)}
+.phw .cc{display:flex;align-items:center;gap:8px;padding:0 12px 0 14px;font-weight:600;font-size:15px;color:var(--ink);border-right:1px solid var(--line);background:rgba(45,107,255,.06);white-space:nowrap}
+.phw .cc svg{border-radius:3px;box-shadow:0 0 0 1px rgba(0,0,0,.08)}
+.lead .phw input{border:0;background:none;border-radius:0;letter-spacing:.04em;font-weight:600;font-variant-numeric:tabular-nums}
+.lead .phw input:focus{background:none}
+.phw.bad{border-color:#d92d20}
+.svw{display:grid;gap:8px}.svl{font-size:13px;font-weight:600;color:var(--ink2)}
+.svpick{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.svpick label{position:relative;display:flex!important;align-items:center;gap:10px;padding:10px 12px;border-radius:14px;border:1px solid var(--line);background:var(--bg);cursor:pointer;font-size:13.5px!important;font-weight:600;color:var(--ink)!important;line-height:1.2;transition:border-color .25s,background .25s,transform .25s,box-shadow .25s}
+.svpick label:hover{border-color:rgba(45,107,255,.5);transform:translateY(-2px)}
+.svpick input{position:absolute;opacity:0;pointer-events:none}
+.svpick .ic{width:34px;height:34px;border-radius:10px;background:#fff;color:var(--blue);display:grid;place-items:center;flex:none;transition:background .25s,color .25s}
+.svpick .ic svg{width:19px;height:19px}
+.svpick label:has(input:checked){border-color:var(--blue);background:#fff;box-shadow:0 8px 20px rgba(45,107,255,.18)}
+.svpick label:has(input:checked) .ic{background:var(--blue);color:#fff}
+.svpick label:has(input:checked)::after{content:"";position:absolute;right:10px;top:10px;width:8px;height:8px;border-radius:50%;background:var(--blue)}
+@media(max-width:420px){.svpick{grid-template-columns:1fr}}
 </style>
 
 <header class="hdr" id="hdr"><div class="wrap"><div class="hbar">
@@ -447,8 +466,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
     <h3 id="lfH"></h3>
     <input type="text" name="company" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
     <label><span id="lfN"></span><input name="name" required maxlength="80" autocomplete="name"></label>
-    <label><span id="lfP"></span><input name="phone" type="tel" required maxlength="30" autocomplete="tel" placeholder="+998 90 123 45 67"></label>
-    <label><span id="lfS"></span><select name="service" id="lfSel"></select></label>
+    <label><span id="lfP"></span><div class="phw"><span class="cc"><svg viewBox="0 0 24 16" width="22" height="15" aria-hidden="true"><rect width="24" height="16" rx="2" fill="#1eb53a"/><rect width="24" height="10.6" fill="#fff"/><rect width="24" height="5.3" fill="#0099b5"/><rect y="5.1" width="24" height=".5" fill="#ce1126"/><rect y="10.4" width="24" height=".5" fill="#ce1126"/></svg>+998</span><input name="phone" type="tel" inputmode="numeric" required maxlength="16" autocomplete="tel-national" placeholder="90 123 45 67"></div></label>
+    <div class="svw"><span class="svl" id="lfS"></span><div class="svpick" id="lfSel" role="radiogroup"></div></div>
     <label><span id="lfM"></span><textarea name="message" rows="3" maxlength="800"></textarea></label>
     <button class="pill" type="submit"><span id="lfB"></span><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg></i></button>
     <p class="lmsg" id="lmsg" role="status"></p>
@@ -1633,9 +1652,9 @@ footer .wrap{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
 }</script>
 <script>
 const UI={
- uz:{lf:{h:'Konsultatsiyaga yozilish',n:'Ismingiz',p:'Telefon raqamingiz',s:'Qiziqtirgan xizmat',m:'Izoh (ixtiyoriy)',b:'Arizani yuborish',sending:'Yuborilmoqda…',ok:'Rahmat! Arizangiz qabul qilindi, tez orada bog‘lanamiz.',err:'Yuborib bo‘lmadi. Iltimos, Telegram orqali yozing.',req:'Ism va telefon raqamini kiriting.',other:'Boshqa / bilmayman'},nav:['Shifokor','Ta’lim','Xizmatlar','Narxlar','Aloqa'],book:'Yozilish',all:'Barchasi',search:'Xizmatni qidiring…',empty:'Hech narsa topilmadi',items:'ta xizmat',phone:'Telefon',addr:'Manzil',hours:'Ish vaqti',call:'Qo‘ng‘iroq',tg:'Telegramda yozish',map:'Xaritada ochish',rights:'Barcha huquqlar himoyalangan',appt:'Yozilish',price:'Narx',name:'Doktor Ismati'},
- ru:{lf:{h:'Запись на консультацию',n:'Ваше имя',p:'Номер телефона',s:'Интересующая услуга',m:'Комментарий (необязательно)',b:'Отправить заявку',sending:'Отправляем…',ok:'Спасибо! Заявка принята, мы скоро свяжемся с вами.',err:'Не удалось отправить. Напишите, пожалуйста, в Telegram.',req:'Укажите имя и номер телефона.',other:'Другое / не знаю'},nav:['О враче','Образование','Услуги','Цены','Контакты'],book:'Записаться',all:'Все',search:'Найти услугу…',empty:'Ничего не найдено',items:'услуг',phone:'Телефон',addr:'Адрес',hours:'Режим работы',call:'Позвонить',tg:'Написать в Telegram',map:'Открыть карту',rights:'Все права защищены',appt:'Записаться',price:'Цена',name:'Доктор Исмати'},
- en:{lf:{h:'Book a consultation',n:'Your name',p:'Phone number',s:'Service of interest',m:'Comment (optional)',b:'Send request',sending:'Sending…',ok:'Thank you! Your request was received, we will contact you soon.',err:'Could not send. Please message us on Telegram.',req:'Please enter your name and phone number.',other:'Other / not sure'},nav:['Doctor','Education','Services','Prices','Contact'],book:'Book',all:'All',search:'Search services…',empty:'Nothing found',items:'services',phone:'Phone',addr:'Address',hours:'Hours',call:'Call',tg:'Message on Telegram',map:'Open map',rights:'All rights reserved',appt:'Book now',price:'Price',name:'Dr. Ismati'}};
+ uz:{lf:{h:'Konsultatsiyaga yozilish',n:'Ismingiz',p:'Telefon raqamingiz',s:'Qiziqtirgan xizmat',m:'Izoh (ixtiyoriy)',b:'Arizani yuborish',sending:'Yuborilmoqda…',ok:'Rahmat! Arizangiz qabul qilindi, tez orada bog‘lanamiz.',err:'Yuborib bo‘lmadi. Iltimos, Telegram orqali yozing.',req:'Ismingizni va telefon raqamini to‘liq kiriting (9 ta raqam).',other:'Boshqa / bilmayman'},nav:['Shifokor','Ta’lim','Xizmatlar','Narxlar','Aloqa'],book:'Yozilish',all:'Barchasi',search:'Xizmatni qidiring…',empty:'Hech narsa topilmadi',items:'ta xizmat',phone:'Telefon',addr:'Manzil',hours:'Ish vaqti',call:'Qo‘ng‘iroq',tg:'Telegramda yozish',map:'Xaritada ochish',rights:'Barcha huquqlar himoyalangan',appt:'Yozilish',price:'Narx',name:'Doktor Ismati'},
+ ru:{lf:{h:'Запись на консультацию',n:'Ваше имя',p:'Номер телефона',s:'Интересующая услуга',m:'Комментарий (необязательно)',b:'Отправить заявку',sending:'Отправляем…',ok:'Спасибо! Заявка принята, мы скоро свяжемся с вами.',err:'Не удалось отправить. Напишите, пожалуйста, в Telegram.',req:'Укажите имя и полный номер телефона (9 цифр).',other:'Другое / не знаю'},nav:['О враче','Образование','Услуги','Цены','Контакты'],book:'Записаться',all:'Все',search:'Найти услугу…',empty:'Ничего не найдено',items:'услуг',phone:'Телефон',addr:'Адрес',hours:'Режим работы',call:'Позвонить',tg:'Написать в Telegram',map:'Открыть карту',rights:'Все права защищены',appt:'Записаться',price:'Цена',name:'Доктор Исмати'},
+ en:{lf:{h:'Book a consultation',n:'Your name',p:'Phone number',s:'Service of interest',m:'Comment (optional)',b:'Send request',sending:'Sending…',ok:'Thank you! Your request was received, we will contact you soon.',err:'Could not send. Please message us on Telegram.',req:'Please enter your name and full phone number (9 digits).',other:'Other / not sure'},nav:['Doctor','Education','Services','Prices','Contact'],book:'Book',all:'All',search:'Search services…',empty:'Nothing found',items:'services',phone:'Phone',addr:'Address',hours:'Hours',call:'Call',tg:'Message on Telegram',map:'Open map',rights:'All rights reserved',appt:'Book now',price:'Price',name:'Dr. Ismati'}};
 const IDS=['about','edu','services','prices','contact'];
 const ICON={up:'<path d="M2 12s3.6-6 10-6 10 6 10 6-3.6 6-10 6S2 12 2 12z"/><circle cx="12" cy="12" r="3"/>',face:'<path d="M12 3c-4 0-6 3.5-6 8 0 5 3 9 6 9s6-4 6-9c0-4.5-2-8-6-8z"/><path d="M9.5 14.5c1.4 1 3.6 1 5 0"/>',nose:'<path d="M12 3c0 6-3 9-3 12a3 3 0 006 0"/><path d="M8 16a2 2 0 01-2-2M16 16a2 2 0 002-2"/>',body:'<path d="M8 3c0 5-2 6-2 10a6 6 0 0012 0c0-4-2-5-2-10"/><path d="M8 13c2 1 6 1 8 0"/>',con:'<rect x="5" y="3" width="14" height="18" rx="3"/><path d="M9 8h6M9 12h6M9 16h3"/>'};
 let S=JSON.parse(document.getElementById('state').textContent);
@@ -1743,12 +1762,17 @@ const _r3=render;render=function(){_r3();eduRev()};
 
 
 function leadForm(){const U=UI[L].lf;$('#lfH').textContent=U.h;$('#lfN').textContent=U.n;$('#lfP').textContent=U.p;$('#lfS').textContent=U.s;$('#lfM').textContent=U.m;$('#lfB').textContent=U.b;
- $('#lfSel').innerHTML=S.services.map(s=>`<option>${esc(tr(s.t))}</option>`).join('')+`<option>${esc(U.other)}</option>`}
+ const IC2={con:'<path d="M12 4v16M4 12h16" stroke-linecap="round"/><circle cx="12" cy="12" r="9.5"/>',other:'<circle cx="12" cy="12" r="9.5"/><path d="M9.6 9.3a2.5 2.5 0 114 2c-.9.6-1.6 1.1-1.6 2.2M12 17h.01" stroke-linecap="round"/>'};
+ const opt=(name,g,i)=>`<label><input type="radio" name="service" value="${esc(name)}" ${i===0?'checked':''}><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">${ICON[g]&&g!=='con'?ICON[g]:IC2[g]||IC2.con}</svg></span>${esc(name)}</label>`;
+ $('#lfSel').innerHTML=S.services.map((s,i)=>opt(tr(s.t),s.g,i)).join('')+opt(U.other,'other',-1)}
+// phone: only digits, formatted as 90 123 45 67
+const fmtPhone=v=>{let d=v.replace(/\D/g,'');if(d.length>9&&d.startsWith('998'))d=d.slice(3);d=d.slice(0,9);return [d.slice(0,2),d.slice(2,5),d.slice(5,7),d.slice(7,9)].filter(Boolean).join(' ')};
+$('#lead').phone.addEventListener('input',e=>{e.target.value=fmtPhone(e.target.value)});
 $('#lead').addEventListener('submit',async e=>{e.preventDefault();const f=e.target,U=UI[L].lf,m=$('#lmsg'),btn=f.querySelector('button');
- const d=Object.fromEntries(new FormData(f));d.lang=L;f.name.classList.toggle('bad',!d.name.trim());f.phone.classList.toggle('bad',(d.phone.replace(/\D/g,'').length<7));
- if(!d.name.trim()||d.phone.replace(/\D/g,'').length<7){m.className='lmsg err';m.textContent=U.req;return}
+ const d=Object.fromEntries(new FormData(f));d.lang=L;const okP=d.phone.replace(/\D/g,'').length===9;f.name.classList.toggle('bad',!d.name.trim());f.phone.parentElement.classList.toggle('bad',!okP);d.phone='+998 '+d.phone;
+ if(!d.name.trim()||!okP){m.className='lmsg err';m.textContent=U.req;return}
  btn.disabled=true;m.className='lmsg';m.textContent=U.sending;
- try{const r=await fetch('/api/lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(d)});if(!r.ok)throw 0;m.className='lmsg ok';m.textContent=U.ok;f.reset()}
+ try{const r=await fetch('/api/lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(d)});if(!r.ok)throw 0;m.className='lmsg ok';m.textContent=U.ok;f.reset();leadForm()}
  catch(_){m.className='lmsg err';m.textContent=U.err}finally{btn.disabled=false}});
 render();par();
 // load latest content saved from the admin panel

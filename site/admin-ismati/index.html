@@ -7,54 +7,126 @@
 <title>Admin panel — Doktor Ismati</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#edf2fb;--ink:#0a1222;--mute:#6b7689;--line:#dde3ee;--blue:#2d6bff;--red:#d92d20}
+:root{--bg:#f1f5fd;--ink:#0a1222;--ink2:#3b4658;--mute:#7a8597;--line:#e3e9f3;--blue:#2d6bff;--blue2:#1b4fe6;--sky:#e7eeff;--red:#d92d20;--green:#0e9f6e}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 "Inter Tight",system-ui,sans-serif}
-.wrap{max-width:980px;margin:0 auto;padding:20px 16px 120px}
-.card{background:#fff;border-radius:18px;padding:20px;margin-bottom:14px}
-h1{font-size:24px;margin:0 0 14px;letter-spacing:-.02em}
-h2{font-size:17px;margin:0 0 12px}
-label{display:block;font-size:12px;color:var(--mute);margin:12px 0 4px;font-weight:600}
-input,textarea{width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:10px;font:inherit;background:#fff}
-input:focus,textarea:focus{outline:2px solid var(--blue);outline-offset:-1px}
-textarea{min-height:70px;resize:vertical}
-.tri{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
-.tri small{display:block;font-size:11px;color:var(--mute);font-weight:700;margin-bottom:3px}
-.box{border:1px solid var(--line);border-radius:14px;padding:14px;margin:12px 0}
-.b{padding:9px 16px;border-radius:999px;border:1px solid var(--line);background:#fff;font:inherit;font-weight:600;cursor:pointer}
-.b.p{background:var(--blue);border-color:var(--blue);color:#fff}
-.b.d{color:var(--red)}
-.b.sm{padding:6px 12px;font-size:13px}
-.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px;position:sticky;top:0;background:var(--bg);padding:10px 0;z-index:2}
-.tabs button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
-.thumbs{display:flex;gap:10px;flex-wrap:wrap}
-.thumbs img{width:110px;height:110px;object-fit:cover;border-radius:12px}
-.gal{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px}
-.gal img{width:100%;height:170px;object-fit:cover;border-radius:10px}
-.row{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
-.bar{position:fixed;left:0;right:0;bottom:0;background:#fff;box-shadow:0 -4px 20px rgba(0,0,0,.08);padding:12px 16px;display:flex;gap:12px;align-items:center;justify-content:center;flex-wrap:wrap}
-#st{font-weight:600}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 "Inter Tight",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit}
 .hide{display:none!important}
-.login{max-width:380px;margin:14vh auto}
-.hint{color:var(--mute);font-size:13px}
-@media(max-width:640px){.tri{grid-template-columns:1fr}}
+
+/* ---------- login ---------- */
+.lg{min-height:100svh;display:grid;place-items:center;padding:20px;position:relative;overflow:hidden;background:linear-gradient(150deg,#3a78ff,#1b4fe6 55%,#0d2fa8)}
+.lg::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 1px 1px,rgba(255,255,255,.14) 1px,transparent 0) 0 0/26px 26px}
+.orb{position:absolute;border-radius:50%;background:radial-gradient(circle at 32% 28%,#fff,#c9dbff 9%,#5b8cff 35%,#1f57f0 62%,#0a2a9e);box-shadow:inset -10px -14px 30px rgba(0,10,80,.45);animation:fl 8s ease-in-out infinite}
+.o1{width:220px;height:220px;right:-60px;top:-50px}.o2{width:90px;height:90px;left:8%;bottom:12%;animation-delay:-3s}.o3{width:46px;height:46px;left:22%;top:16%;animation-delay:-5s}
+@keyframes fl{50%{transform:translateY(-16px) rotate(8deg)}}
+.lcard{position:relative;width:min(420px,100%);background:rgba(255,255,255,.96);backdrop-filter:blur(20px);border-radius:28px;padding:34px 30px 28px;box-shadow:0 40px 80px rgba(5,20,80,.35);animation:up .8s cubic-bezier(.2,.8,.2,1)}
+@keyframes up{from{opacity:0;transform:translateY(30px) scale(.97)}}
+.lav{width:76px;height:76px;border-radius:50%;object-fit:cover;object-position:50% 15%;border:4px solid #fff;box-shadow:0 10px 30px rgba(45,107,255,.35);margin:-72px auto 14px;display:block;background:var(--sky)}
+.lcard h1{text-align:center;font-size:26px;letter-spacing:-.03em;margin:0}
+.lcard .sub{text-align:center;color:var(--mute);margin:4px 0 24px;font-size:14px}
+.fld{position:relative}
+.fld svg.l{position:absolute;left:16px;top:50%;transform:translateY(-50%);width:19px;height:19px;color:var(--mute)}
+.fld input{width:100%;padding:15px 50px 15px 46px;border:1.5px solid var(--line);border-radius:16px;font:inherit;font-size:16px;background:var(--bg);outline:none;transition:border-color .25s,background .25s,box-shadow .25s}
+.fld input:focus{border-color:var(--blue);background:#fff;box-shadow:0 0 0 4px rgba(45,107,255,.14)}
+.eye{position:absolute;right:8px;top:50%;transform:translateY(-50%);width:38px;height:38px;border:0;border-radius:12px;background:none;cursor:pointer;color:var(--mute);display:grid;place-items:center}
+.eye:hover{background:var(--sky);color:var(--blue)}.eye svg{width:20px;height:20px}
+.go{width:100%;margin-top:14px;padding:15px;border:0;border-radius:16px;background:var(--blue);color:#fff;font:inherit;font-weight:600;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;transition:background .25s,transform .25s,box-shadow .25s}
+.go:hover{background:var(--blue2);box-shadow:0 14px 30px rgba(45,107,255,.35);transform:translateY(-1px)}
+.go.ld{pointer-events:none;opacity:.8}.go.ld::after{content:"";width:16px;height:16px;border:2px solid #fff;border-right-color:transparent;border-radius:50%;animation:sp .7s linear infinite}
+@keyframes sp{to{transform:rotate(360deg)}}
+.lerr{min-height:22px;margin:12px 0 0;text-align:center;color:var(--red);font-weight:600;font-size:14px}
+.shake{animation:sh .4s}@keyframes sh{25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
+.foot{text-align:center;color:var(--mute);font-size:12px;margin-top:10px}
+
+/* ---------- app layout ---------- */
+.app{display:grid;grid-template-columns:260px 1fr;min-height:100svh}
+.side{position:sticky;top:0;height:100svh;background:#0b1630;color:#c9d3e6;padding:22px 16px;display:flex;flex-direction:column;gap:6px}
+.brand{display:flex;align-items:center;gap:12px;padding:4px 8px 22px}
+.brand img{width:42px;height:42px;border-radius:50%;object-fit:cover;object-position:50% 15%;border:2px solid var(--blue)}
+.brand b{display:block;color:#fff;font-size:15px}.brand small{font-size:12px;color:#8494b3}
+.tabs{display:flex;flex-direction:column;gap:4px}
+.tabs button{display:flex;align-items:center;gap:12px;width:100%;text-align:left;padding:11px 14px;border:0;border-radius:12px;background:none;color:#c9d3e6;font:inherit;font-weight:500;cursor:pointer;transition:background .2s,color .2s}
+.tabs button svg{width:19px;height:19px;flex:none;opacity:.85}
+.tabs button:hover{background:rgba(255,255,255,.06);color:#fff}
+.tabs button.on{background:var(--blue);color:#fff;box-shadow:0 8px 20px rgba(45,107,255,.35)}
+.side .sp{flex:1}
+.side a.sl,.side button.sl{display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:12px;color:#c9d3e6;text-decoration:none;font-size:14px;background:none;border:0;font:inherit;cursor:pointer}
+.side .sl:hover{background:rgba(255,255,255,.06);color:#fff}
+.main{padding:28px clamp(16px,3vw,40px) 120px;min-width:0}
+.top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:20px;flex-wrap:wrap}
+.top h1{font-size:clamp(24px,3vw,32px);letter-spacing:-.03em;margin:0}
+.top p{margin:2px 0 0;color:var(--mute);font-size:14px}
+.card{background:#fff;border-radius:22px;padding:clamp(16px,2.4vw,26px);margin-bottom:16px;box-shadow:0 1px 2px rgba(10,30,80,.04),0 8px 24px rgba(10,30,80,.04)}
+h2{font-size:18px;margin:0 0 6px;letter-spacing:-.02em}
+label{display:block;font-size:12px;color:var(--mute);margin:14px 0 5px;font-weight:600;text-transform:uppercase;letter-spacing:.04em}
+input,textarea{width:100%;padding:11px 13px;border:1.5px solid var(--line);border-radius:12px;font:inherit;background:#fbfcff;color:var(--ink);transition:border-color .2s,box-shadow .2s,background .2s}
+input:focus,textarea:focus{outline:none;border-color:var(--blue);background:#fff;box-shadow:0 0 0 4px rgba(45,107,255,.12)}
+input[type=file]{padding:18px;border-style:dashed;background:var(--sky);cursor:pointer;color:var(--ink2)}
+textarea{min-height:80px;resize:vertical}
+.tri{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.tri small{display:inline-block;font-size:10.5px;font-weight:700;margin-bottom:4px;padding:2px 7px;border-radius:6px;background:var(--sky);color:var(--blue)}
+.box{border:1px solid var(--line);border-radius:16px;padding:14px 16px;margin:12px 0;background:#fcfdff;transition:border-color .2s}
+.box:hover{border-color:#c9d6ee}
+.b{display:inline-flex;align-items:center;gap:6px;padding:10px 18px;border-radius:999px;border:1.5px solid var(--line);background:#fff;font:inherit;font-weight:600;cursor:pointer;transition:background .2s,border-color .2s,color .2s}
+.b:hover{border-color:var(--blue);color:var(--blue)}
+.b.p{background:var(--blue);border-color:var(--blue);color:#fff}.b.p:hover{background:var(--blue2);color:#fff}
+.b.d{color:var(--red)}.b.d:hover{border-color:var(--red);background:#fff5f4}
+.b.sm{padding:6px 12px;font-size:13px}
+.thumbs{display:flex;gap:10px;flex-wrap:wrap}
+.thumbs img{width:140px;height:140px;object-fit:cover;border-radius:16px}
+.gal{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
+.gal img{width:100%;height:180px;object-fit:cover;border-radius:12px}
+.row{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.hint{color:var(--mute);font-size:13.5px;margin:0 0 6px}
+.bar{position:fixed;right:20px;bottom:20px;z-index:20;background:#0b1630;color:#fff;border-radius:999px;padding:8px 8px 8px 20px;display:flex;gap:14px;align-items:center;box-shadow:0 20px 50px rgba(5,20,60,.35)}
+#st{font-weight:600;font-size:14px;max-width:46vw;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bar .b.p{padding:11px 22px}
+.bar.dirty #st{color:#ffd166}
+.toast{animation:up .4s}
+@media(max-width:900px){
+  .app{grid-template-columns:1fr}
+  .side{position:sticky;top:0;height:auto;z-index:10;flex-direction:row;align-items:center;padding:10px;gap:8px;overflow-x:auto;scrollbar-width:none}
+  .side::-webkit-scrollbar{display:none}
+  .brand{padding:0 6px 0 0}.brand span{display:none}
+  .tabs{flex-direction:row}.tabs button{white-space:nowrap;padding:9px 12px}
+  .side .sp,.side .sl span{display:none}
+  .bar{left:12px;right:12px;bottom:12px;justify-content:space-between}
+  .tri{grid-template-columns:1fr}
+}
 </style>
 </head>
 <body>
-<div class="wrap">
-  <div class="card login" id="login">
+<div class="lg" id="login">
+  <span class="orb o1"></span><span class="orb o2"></span><span class="orb o3"></span>
+  <div class="lcard" id="lcard">
+    <img class="lav" src="/assets/4.webp" alt="">
     <h1>Admin panel</h1>
-    <label>Parol</label><input type="password" id="pw" autocomplete="current-password">
-    <div class="row"><button class="b p" id="go">Kirish</button></div>
-    <p id="lerr" style="color:var(--red)"></p>
-  </div>
-  <div id="app" class="hide">
-    <h1>Admin panel · <a href="/" target="_blank">saytni ochish ↗</a></h1>
-    <div class="tabs" id="tabs"></div>
-    <div id="panel"></div>
+    <p class="sub">Doktor Ismati sayti boshqaruvi</p>
+    <div class="fld">
+      <svg class="l" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="10" width="16" height="11" rx="3"/><path d="M8 10V7a4 4 0 018 0v3"/></svg>
+      <input type="password" id="pw" placeholder="Parolni kiriting" autocomplete="current-password" autofocus>
+      <button class="eye" id="eye" type="button" aria-label="Parolni ko‘rsatish"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3.6-6 10-6 10 6 10 6-3.6 6-10 6S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></button>
+    </div>
+    <button class="go" id="go">Kirish</button>
+    <p class="lerr" id="lerr"></p>
+    <p class="foot">Faqat sayt egasi uchun</p>
   </div>
 </div>
-<div class="bar hide" id="bar"><button class="b p" id="save">💾 Saqlash</button><span id="st"></span><button class="b sm" id="out">Chiqish</button></div>
+
+<div class="app hide" id="app">
+  <aside class="side">
+    <div class="brand"><img src="/assets/4.webp" alt=""><span><b>Doktor Ismati</b><small>Admin panel</small></span></div>
+    <nav class="tabs" id="tabs"></nav>
+    <div class="sp"></div>
+    <a class="sl" href="/" target="_blank"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 4h6v6M20 4l-9 9M19 14v5a1 1 0 01-1 1H5a1 1 0 01-1-1V6a1 1 0 011-1h5"/></svg><span>Saytni ochish</span></a>
+    <button class="sl" id="out"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 4h3a2 2 0 012 2v12a2 2 0 01-2 2h-3M10 17l5-5-5-5M15 12H3"/></svg><span>Chiqish</span></button>
+  </aside>
+  <main class="main">
+    <div class="top"><div><h1 id="ttl"></h1><p id="tsub"></p></div></div>
+    <div id="panel"></div>
+  </main>
+</div>
+<div class="bar hide" id="bar"><span id="st">O‘zgarishlar saqlangan</span><button class="b p" id="save">Saqlash</button></div>
 
 <script>
 const LANGS=['uz','ru','en'],E=()=>({uz:'',ru:'',en:''});
@@ -66,14 +138,17 @@ const $=s=>document.querySelector(s);
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const get=p=>p.split('.').reduce((o,k)=>o[k],S);
 const st=t=>$('#st').textContent=t;
-const mark=()=>{dirty=true;st('Saqlanmagan o‘zgarishlar bor')};
+const mark=()=>{dirty=true;$('#bar').classList.add('dirty');st('● Saqlanmagan o‘zgarishlar')};
+const TI={main:'<path d="M4 6h16M4 12h16M4 18h10"/>',photos:'<rect x="3" y="5" width="18" height="14" rx="3"/><circle cx="9" cy="10" r="2"/><path d="M21 16l-5-5-9 8"/>',services:'<path d="M12 3c-4 0-6 3.5-6 8 0 5 3 9 6 9s6-4 6-9c0-4.5-2-8-6-8z"/>',prices:'<path d="M20 12l-8 8-9-9V3h8z"/><circle cx="7.5" cy="7.5" r="1.5"/>',more:'<path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/>',edu:'<path d="M12 4l10 5-10 5L2 9z"/><path d="M6 11v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5"/>',contacts:'<path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2"/>'};
+const TS={main:'Saytdagi barcha matnlar — 3 tilda',photos:'Portret, konsultatsiya rasmi va galereya',services:'Bosh sahifadagi xizmat kartalari',prices:'Narxlar katalogi va bo‘limlar',more:'Raqamlar, jarayon bosqichlari, klinika yo‘nalishlari',edu:'Ta’lim tarixi va clinics.uz sharhlari',contacts:'Telefon, Telegram, Instagram, manzil'};
 
 function tri(path,o,long){return `<div class="tri">${LANGS.map(l=>`<div><small>${l.toUpperCase()}</small>${long?`<textarea data-p="${path}" data-l="${l}">${esc(o?.[l])}</textarea>`:`<input data-p="${path}" data-l="${l}" value="${esc(o?.[l])}">`}</div>`).join('')}</div>`}
 const del=p=>`<button class="b sm d" data-del="${p}">O‘chirish</button>`;
 const up=(p,i)=>`<button class="b sm" data-mv="${p}:${i}:-1">↑</button><button class="b sm" data-mv="${p}:${i}:1">↓</button>`;
 
 function render(){
- $('#tabs').innerHTML=Object.entries(TABS).map(([k,v])=>`<button class="b ${k===tab?'on':''}" data-tab="${k}">${v}</button>`).join('');
+ $('#tabs').innerHTML=Object.entries(TABS).map(([k,v])=>`<button class="${k===tab?'on':''}" data-tab="${k}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round">${TI[k]}</svg>${v}</button>`).join('');
+ $('#ttl').textContent=TABS[tab];$('#tsub').textContent=TS[tab];
  let h='';
  if(tab==='main') h=`<div class="card"><h2>Matnlar</h2><p class="hint">Har bir matn 3 tilda: UZ · RU · EN.</p>${Object.keys(S.t).map(k=>`<label>${LBL[k]||k}</label>${tri('t.'+k,S.t[k],LONG.test(k))}`).join('')}</div>`;
  if(tab==='photos') h=`<div class="card"><h2>Asosiy portret</h2><div class="thumbs">${S.photo?`<img src="${esc(S.photo)}">`:''}</div><label>Yangi rasm</label><input type="file" accept="image/*" data-up="photo"></div>
@@ -121,7 +196,7 @@ async function upload(f){const b=await shrink(f);const r=await fetch('/api/uploa
 $('#save').onclick=async()=>{st('Saqlanmoqda…');
  const r=await fetch('/api/content',{method:'PUT',headers:{'Content-Type':'application/json',Authorization:'Bearer '+token},body:JSON.stringify(S)});
  if(r.status===401){st('Sessiya tugadi, qayta kiring');logout();return}
- if(r.ok){dirty=false;st('✅ Saqlandi — saytda ko‘rinadi')}else st('❌ Xato: '+((await r.json().catch(()=>({}))).error||r.status))};
+ if(r.ok){dirty=false;$('#bar').classList.remove('dirty');st('✓ Saqlandi — saytda ko‘rinadi')}else st('❌ Xato: '+((await r.json().catch(()=>({}))).error||r.status))};
 function logout(){sessionStorage.removeItem('tk');token=null;location.reload()}
 $('#out').onclick=logout;
 addEventListener('beforeunload',e=>{if(dirty){e.preventDefault();e.returnValue=''}});
@@ -130,10 +205,14 @@ async function start(){
  let r=await fetch('/api/content',{cache:'no-store'});
  S=r.ok?await r.json():await (await fetch('/content.default.json',{cache:'no-store'})).json();
  $('#login').classList.add('hide');$('#app').classList.remove('hide');$('#bar').classList.remove('hide');render()}
-$('#go').onclick=async()=>{$('#lerr').textContent='';const r=await fetch('/api/login',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({password:$('#pw').value})});
- const j=await r.json().catch(()=>({}));if(!r.ok){$('#lerr').textContent=r.status===401?'Parol noto‘g‘ri':(j.error||'Xato');return}
+$('#eye').onclick=()=>{const p=$('#pw');p.type=p.type==='password'?'text':'password';p.focus()};
+$('#go').onclick=async()=>{const g=$('#go'),c=$('#lcard');$('#lerr').textContent='';if(!$('#pw').value){$('#lerr').textContent='Parolni kiriting';return}
+ g.classList.add('ld');g.textContent='Tekshirilmoqda';let r,j={};
+ try{r=await fetch('/api/login',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({password:$('#pw').value})});j=await r.json().catch(()=>({}))}catch(_){r={ok:false,status:0}}
+ g.classList.remove('ld');g.textContent='Kirish';
+ if(!r.ok){$('#lerr').textContent=r.status===401?'Parol noto‘g‘ri':(j.error||'Server bilan aloqa yo‘q');c.classList.remove('shake');void c.offsetWidth;c.classList.add('shake');return}
  token=j.token;sessionStorage.setItem('tk',token);start()};
-$('#pw').onkeydown=e=>e.key==='Enter'&&$('#go').click();
+$('#pw').addEventListener('keydown',e=>{if(e.key==='Enter')$('#go').click()});
 if(token)start();
 </script>
 </body>

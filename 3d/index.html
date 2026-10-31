@@ -23,8 +23,11 @@ button{font-family:inherit}
 .vignette{position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse at 50% 40%,transparent 40%,rgba(0,0,0,.65))}
 
 /* ---------- panel content (lives on 3D glass) ---------- */
-.pn{color:var(--ink);font-family:var(--body);user-select:none}
+.pn{--ink:#0b1220;--muted:#2c3648;--dim:#4b566b;--line:rgba(11,18,32,.18);color:var(--ink);font-family:var(--body);user-select:none}
 .pn *{user-select:none}
+.pn .btn-p,.pn .langs button.on{background:#0b1220!important;color:#fff!important}
+.pn .p-title h1 span{background:linear-gradient(100deg,#0b1220 10%,#1f5fbf 60%,#3a8dde);-webkit-background-clip:text;background-clip:text;color:transparent}
+.pn .btn{background:rgba(255,255,255,.55)}
 .p-nav{display:flex;align-items:center;gap:26px;height:100%;padding:0 26px}
 .logo{display:flex;align-items:center;gap:10px;font:600 17px var(--display);letter-spacing:.02em;white-space:nowrap}
 .logo i{width:26px;height:26px;border-radius:50%;border:2px solid var(--ink);display:grid;place-items:center}
@@ -1205,16 +1208,16 @@ function initGL(){
  const pm=new THREE.PMREMGenerator(renderer);scene.environment=pm.fromScene(new THREE.RoomEnvironment(),.04).texture;pm.dispose();
  const camera=new THREE.PerspectiveCamera(30,1,10,8000);
  // studio light
- scene.add(new THREE.AmbientLight(0x3a3550,.6));
+ scene.add(new THREE.AmbientLight(0xdcecff,1.1));
  const key=new THREE.DirectionalLight(0xffffff,1.1);key.position.set(-600,800,900);scene.add(key);
- const rimG=new THREE.DirectionalLight(0x7dffc4,1.2);rimG.position.set(900,-300,300);scene.add(rimG);
- const rimV=new THREE.DirectionalLight(0x9b7bff,1.6);rimV.position.set(-900,-200,400);scene.add(rimV);
+ const rimG=new THREE.DirectionalLight(0xcfe8ff,.9);rimG.position.set(900,-300,300);scene.add(rimG);
+ const rimV=new THREE.DirectionalLight(0x9fd0ff,1.2);rimV.position.set(-900,-200,400);scene.add(rimV);
  const cursorLight=new THREE.PointLight(0xc8b8ff,0,1400,1.6);cursorLight.position.z=260;scene.add(cursorLight);
 
  const root=new THREE.Group(),cssRoot=new THREE.Group();scene.add(root);cssScene.add(cssRoot);
  const tilt=new THREE.Group(),cssTilt=new THREE.Group();root.add(tilt);cssRoot.add(cssTilt);
 
- const baseMat=()=>new THREE.MeshPhysicalMaterial({color:0x17161f,metalness:0,roughness:.14,transmission:.35,thickness:30,ior:1.5,clearcoat:1,clearcoatRoughness:.06,iridescence:.7,iridescenceIOR:1.35,iridescenceThicknessRange:[180,620],envMapIntensity:1.1,transparent:true,opacity:1,specularIntensity:1});
+ const baseMat=()=>new THREE.MeshPhysicalMaterial({color:0xe2efff,metalness:0,roughness:.22,transmission:.12,thickness:30,ior:1.5,clearcoat:1,clearcoatRoughness:.06,iridescence:.15,iridescenceIOR:1.35,iridescenceThicknessRange:[180,620],envMapIntensity:1.1,transparent:true,opacity:1,specularIntensity:1});
  // glow sprite for cursor
  const gc=document.createElement('canvas');gc.width=gc.height=128;const gx=gc.getContext('2d');const gr=gx.createRadialGradient(64,64,0,64,64,64);gr.addColorStop(0,'rgba(200,184,255,.85)');gr.addColorStop(.4,'rgba(185,166,255,.25)');gr.addColorStop(1,'rgba(185,166,255,0)');gx.fillStyle=gr;gx.fillRect(0,0,128,128);
  const glowTex=new THREE.CanvasTexture(gc);
@@ -1240,7 +1243,7 @@ function initGL(){
   const mat=it.mesh?it.mesh.material:baseMat();
   it.mesh=new THREE.Mesh(geo,mat);it.mesh.userData.it=it;
   it.base=Float32Array.from(geo.attributes.position.array);it.hw=w/2;it.hh=h/2;
-  it.edges=new THREE.LineSegments(new THREE.EdgesGeometry(geo,25),new THREE.LineBasicMaterial({color:0xe8e2ff,transparent:true,opacity:.32}));
+  it.edges=new THREE.LineSegments(new THREE.EdgesGeometry(geo,25),new THREE.LineBasicMaterial({color:0x7fb8ff,transparent:true,opacity:.55}));
   it.geoG.add(it.mesh,it.edges);
   if(!it.glow){it.glow=new THREE.Sprite(new THREE.SpriteMaterial({map:glowTex,color:0xc8b8ff,transparent:true,opacity:0,blending:THREE.AdditiveBlending,depthWrite:false}));it.glow.scale.set(260,260,1);it.geoG.add(it.glow)}
   it.div.style.width=w+'px';it.div.style.height=h+'px';it.obj.position.z=13;

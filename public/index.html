@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Doktor Ismati — Plastik jarroh, Samarqand</title>
+<meta name="description" content="Blefaroplastika, yuz va tana plastikasi, Samarqand. RaNo Med klinikasi.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header class="nav">
+  <a href="#top" class="logo" data-t="brand"></a>
+  <nav class="links">
+    <a href="#about" data-ui="about"></a>
+    <a href="#services" data-ui="services"></a>
+    <a href="#prices" data-ui="prices"></a>
+    <a href="#gallery" data-ui="gallery"></a>
+    <a href="#contact" data-ui="contact"></a>
+  </nav>
+  <div class="langs">
+    <button data-lang="uz">UZ</button><button data-lang="ru">RU</button><button data-lang="en">EN</button>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <div class="blob b1"></div><div class="blob b2"></div>
+  <div class="hero-text">
+    <p class="eyebrow reveal" data-t="role"></p>
+    <h1 class="reveal" data-t="heroTitle"></h1>
+    <p class="lead reveal" data-t="heroText"></p>
+    <div class="cta reveal">
+      <a class="btn" href="#contact" data-ui="book"></a>
+      <a class="btn ghost" href="#prices" data-ui="seePrices"></a>
+    </div>
+    <div class="stats reveal" id="stats"></div>
+  </div>
+  <div class="hero-img reveal"><img src="/img/4.webp" alt="" id="heroImg"><span class="ring"></span></div>
+</section>
+
+<section id="about" class="section about">
+  <div class="about-img reveal"><img src="/img/2.webp" alt=""></div>
+  <div class="reveal">
+    <h2 data-ui="about"></h2>
+    <p data-t="aboutText"></p>
+  </div>
+</section>
+
+<section id="services" class="section">
+  <h2 class="reveal" data-ui="services"></h2>
+  <div class="grid services" id="servicesList"></div>
+</section>
+
+<section id="prices" class="section">
+  <h2 class="reveal" data-ui="prices"></h2>
+  <p class="note reveal" data-ui="priceNote"></p>
+  <input class="search reveal" id="search" type="search">
+  <div class="tabs reveal" id="tabs"></div>
+  <div class="price-list" id="priceList"></div>
+</section>
+
+<section id="gallery" class="section">
+  <h2 class="reveal" data-ui="gallery"></h2>
+  <div class="masonry" id="galleryList"></div>
+</section>
+
+<section id="contact" class="section contact">
+  <div class="reveal">
+    <h2 data-ui="contact"></h2>
+    <p><b data-ui="addressL"></b><br><span data-t="address"></span></p>
+    <p><b data-ui="hoursL"></b><br><span data-t="hours"></span></p>
+    <p><b data-ui="phoneL"></b><br><a id="phone"></a></p>
+    <div class="socials" id="socials"></div>
+  </div>
+  <div class="reveal card-cta">
+    <h3 data-ui="book"></h3>
+    <a class="btn" id="tgBtn" target="_blank" rel="noopener">Telegram</a>
+    <a class="btn ghost" id="callBtn" data-ui="call"></a>
+    <a class="btn ghost" id="mapBtn" target="_blank" rel="noopener" data-ui="map"></a>
+  </div>
+</section>
+
+<footer>© <span id="year"></span> <span data-t="brand"></span> · RaNo Med</footer>
+
+<div class="lightbox" id="lightbox"><img alt=""><p></p></div>
+<script src="/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Admin panel</title>
+<style>
+  body { margin: 0; font: 15px/1.5 system-ui, sans-serif; background: #f2f4f7; color: #1d2433; }
+  .wrap { max-width: 1000px; margin: 0 auto; padding: 20px 16px 120px; }
+  h1 { margin: 0 0 16px; } h2 { margin: 0 0 12px; font-size: 1.2rem; }
+  .card { background: #fff; border-radius: 12px; padding: 18px; margin-bottom: 16px; box-shadow: 0 1px 3px #0001; }
+  .tabs { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 16px; }
+  .tabs button, .b { border: 1px solid #cfd5df; background: #fff; padding: 8px 14px; border-radius: 8px; cursor: pointer; font: inherit; }
+  .tabs button.on, .b.p { background: #1f4e8c; color: #fff; border-color: #1f4e8c; }
+  .b.d { color: #b42318; border-color: #f3b4ae; }
+  label { display: block; font-size: .8rem; color: #667085; margin-top: 8px; }
+  input, textarea { width: 100%; box-sizing: border-box; padding: 8px 10px; border: 1px solid #cfd5df; border-radius: 8px; font: inherit; }
+  textarea { min-height: 80px; }
+  .tri { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .item { border: 1px solid #e4e7ec; border-radius: 10px; padding: 12px; margin-bottom: 10px; }
+  .item .top { display: flex; gap: 8px; justify-content: flex-end; }
+  .gal { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; }
+  .gal img { width: 100%; height: 160px; object-fit: cover; border-radius: 8px; }
+  .save { position: fixed; bottom: 0; left: 0; right: 0; background: #fff; padding: 12px 16px; box-shadow: 0 -2px 10px #0002; display: flex; gap: 12px; justify-content: center; align-items: center; }
+  .hide { display: none; }
+  .row { display: grid; grid-template-columns: 3fr 1fr auto; gap: 8px; align-items: end; }
+  @media (max-width: 700px) { .tri, .row { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div id="login" class="card" style="max-width:360px;margin:15vh auto">
+    <h2>Admin panelga kirish</h2>
+    <input id="pw" type="password" placeholder="Parol">
+    <p><button class="b p" id="loginBtn">Kirish</button> <span id="loginErr" style="color:#b42318"></span></p>
+  </div>
+  <div id="app" class="hide">
+    <h1>Admin panel <a href="/" target="_blank" style="font-size:.9rem">saytni ochish ↗</a></h1>
+    <div class="tabs" id="tabs"></div>
+    <div id="panel"></div>
+  </div>
+</div>
+<div class="save hide" id="saveBar"><button class="b p" id="saveBtn">💾 Saqlash</button><span id="status"></span></div>
+
+<script>
+const LANGS = ['uz', 'ru', 'en'];
+const TABS = { main: 'Asosiy', services: 'Xizmatlar', gallery: 'Galereya', catalog: 'Narxlar katalogi', stats: 'Statistika' };
+let data, token = sessionStorage.getItem('t'), tab = 'main';
+const $ = (s) => document.querySelector(s);
+const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const T = () => ({ uz: '', ru: '', en: '' });
+
+// Each input stores a path into `data`, e.g. "catalog.0.items.3.price"
+const field = (path, val, area) => area
+  ? `<textarea data-p="${path}">${esc(val)}</textarea>`
+  : `<input data-p="${path}" value="${esc(val)}">`;
+const tri = (label, path, obj, area) => `<label>${label}</label><div class="tri">` +
+  LANGS.map((l) => `<div><label>${l.toUpperCase()}</label>${field(path + '.' + l, obj?.[l], area)}</div>`).join('') + '</div>';
+const btn = (txt, act, cls = '') => `<button class="b ${cls}" data-a="${act}">${txt}</button>`;
+
+function setPath(path, v) {
+  const k = path.split('.'); let o = data;
+  k.slice(0, -1).forEach((x) => (o = o[x]));
+  o[k.at(-1)] = v;
+}
+function list(path) { return path.split('.').reduce((o, x) => o[x], data); }
+
+function render() {
+  $('#tabs').innerHTML = Object.entries(TABS).map(([k, v]) => `<button data-tab="${k}" class="${k === tab ? 'on' : ''}">${v}</button>`).join('');
+  let h = '';
+  const t = data.texts, s = data.settings;
+  if (tab === 'main') {
+    h += '<div class="card"><h2>Matnlar</h2>' +
+      tri('Ism / brend', 'texts.brand', t.brand) + tri('Lavozim', 'texts.role', t.role) +
+      tri('Bosh sarlavha', 'texts.heroTitle', t.heroTitle) + tri('Bosh matn', 'texts.heroText', t.heroText, 1) +
+      tri('Shifokor haqida', 'texts.aboutText', t.aboutText, 1) + tri('Manzil', 'texts.address', t.address) +
+      tri('Ish vaqti', 'texts.hours', t.hours) + '</div>';
+    h += '<div class="card"><h2>Kontaktlar</h2>' +
+      '<label>Telefon</label>' + field('settings.phone', s.phone) +
+      '<label>Telegram havola</label>' + field('settings.telegram', s.telegram) +
+      '<label>Xarita havolasi</label>' + field('settings.mapUrl', s.mapUrl) +
+      s.instagram.map((u, i) => `<label>Instagram ${i + 1}</label><div class="row" style="grid-template-columns:1fr auto">${field('settings.instagram.' + i, u)}${btn('O‘chirish', 'del:settings.instagram:' + i, 'd')}</div>`).join('') +
+      '<p>' + btn('+ Instagram qo‘shish', 'addStr:settings.instagram') + '</p></div>';
+  }
+  if (tab === 'services') {
+    h += '<div class="card"><h2>Xizmatlar</h2>' + data.services.map((x, i) =>
+      `<div class="item"><div class="top">${btn('O‘chirish', 'del:services:' + i, 'd')}</div>${tri('Xizmat ' + (i + 1), 'services.' + i, x)}</div>`).join('') +
+      btn('+ Xizmat qo‘shish', 'addT:services') + '</div>';
+  }
+  if (tab === 'stats') {
+    h += '<div class="card"><h2>Bosh sahifadagi raqamlar</h2>' + data.stats.map((x, i) =>
+      `<div class="item"><div class="top">${btn('O‘chirish', 'del:stats:' + i, 'd')}</div><label>Raqam</label>${field('stats.' + i + '.value', x.value)}${tri('Izoh', 'stats.' + i + '.label', x.label)}</div>`).join('') +
+      btn('+ Qo‘shish', 'addStat') + '</div>';
+  }
+  if (tab === 'gallery') {
+    h += '<div class="card"><h2>Galereya</h2><p><input type="file" id="upl" accept="image/*" multiple> <span id="uplSt"></span></p><div class="gal">' +
+      data.gallery.map((g, i) => `<div class="item"><img src="${esc(g.src)}">
+        <div class="top">${i ? btn('←', 'mv:' + i + ':-1') : ''}${btn('→', 'mv:' + i + ':1')}${btn('O‘chirish', 'del:gallery:' + i, 'd')}</div>
+        ${LANGS.map((l) => `<label>Izoh ${l.toUpperCase()}</label>${field('gallery.' + i + '.caption.' + l, g.caption?.[l])}`).join('')}</div>`).join('') +
+      '</div><p style="color:#667085">Birinchi rasm bosh sahifada ham ko‘rinadi.</p></div>';
+  }
+  if (tab === 'catalog') {
+    h += data.catalog.map((c, ci) => `<div class="card"><div class="item"><div class="top">${btn('Bo‘limni o‘chirish', 'del:catalog:' + ci, 'd')}</div>${tri('Bo‘lim nomi', 'catalog.' + ci + '.title', c.title)}</div>` +
+      c.items.map((it, ii) => `<div class="item"><div class="row"><div>${tri('Xizmat', `catalog.${ci}.items.${ii}.name`, it.name)}</div>
+        <div><label>Narx (so‘m)</label>${field(`catalog.${ci}.items.${ii}.price`, it.price)}</div>${btn('✕', `del:catalog.${ci}.items:${ii}`, 'd')}</div></div>`).join('') +
+      btn('+ Xizmat qo‘shish', 'addItem:' + ci) + '</div>').join('') +
+      `<div class="card">${btn('+ Yangi bo‘lim', 'addCat', 'p')}</div>`;
+  }
+  $('#panel').innerHTML = h;
+  const up = $('#upl'); if (up) up.onchange = uploadFiles;
+}
+
+async function uploadFiles(e) {
+  for (const f of e.target.files) {
+    $('#uplSt').textContent = 'Yuklanmoqda: ' + f.name;
+    const fd = new FormData(); fd.append('file', f);
+    const r = await fetch('/api/upload', { method: 'POST', headers: { Authorization: 'Bearer ' + token }, body: fd });
+    if (!r.ok) { $('#uplSt').textContent = 'Xato: ' + f.name; continue; }
+    data.gallery.push({ src: (await r.json()).src, caption: T() });
+  }
+  render(); dirty();
+}
+
+function dirty() { $('#status').textContent = 'Saqlanmagan o‘zgarishlar bor'; }
+
+document.addEventListener('input', (e) => { if (e.target.dataset.p) { setPath(e.target.dataset.p, e.target.value); dirty(); } });
+document.addEventListener('click', (e) => {
+  const tb = e.target.dataset.tab; if (tb) { tab = tb; render(); return; }
+  const a = e.target.dataset.a; if (!a) return;
+  const [cmd, p1, p2] = a.split(':');
+  if (cmd === 'del') { if (!confirm('O‘chirilsinmi?')) return; list(p1).splice(+p2, 1); }
+  if (cmd === 'addStr') list(p1).push('');
+  if (cmd === 'addT') list(p1).push(T());
+  if (cmd === 'addStat') data.stats.push({ value: '', label: T() });
+  if (cmd === 'addItem') data.catalog[+p1].items.push({ name: T(), price: '' });
+  if (cmd === 'addCat') data.catalog.push({ title: T(), items: [] });
+  if (cmd === 'mv') { const i = +p1, j = i + +p2, g = data.gallery; if (j < g.length) [g[i], g[j]] = [g[j], g[i]]; }
+  render(); dirty();
+});
+
+$('#saveBtn').onclick = async () => {
+  const r = await fetch('/api/data', { method: 'PUT', headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + token }, body: JSON.stringify(data) });
+  if (r.status === 401) { sessionStorage.removeItem('t'); location.reload(); return; }
+  $('#status').textContent = r.ok ? '✅ Saqlandi' : '❌ Xato';
+};
+
+async function start() {
+  data = await (await fetch('/api/data')).json();
+  $('#login').classList.add('hide'); $('#app').classList.remove('hide'); $('#saveBar').classList.remove('hide');
+  render();
+}
+$('#loginBtn').onclick = async () => {
+  const r = await fetch('/api/login', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ password: $('#pw').value }) });
+  if (!r.ok) { $('#loginErr').textContent = 'Parol noto‘g‘ri'; return; }
+  token = (await r.json()).token; sessionStorage.setItem('t', token); start();
+};
+$('#pw').onkeydown = (e) => e.key === 'Enter' && $('#loginBtn').click();
+if (token) start();
+</script>
+</body>
+</html>

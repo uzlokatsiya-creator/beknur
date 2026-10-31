@@ -58,7 +58,7 @@ textarea{min-height:70px;resize:vertical}
 
 <script>
 const LANGS=['uz','ru','en'],E=()=>({uz:'',ru:'',en:''});
-const TABS={main:'Asosiy',photos:'Rasmlar',services:'Xizmatlar',prices:'Narxlar',more:'Raqamlar va bosqichlar',contacts:'Aloqa'};
+const TABS={main:'Asosiy',photos:'Rasmlar',services:'Xizmatlar',prices:'Narxlar',more:'Raqamlar va bosqichlar',edu:'Ta’lim va sharhlar',contacts:'Aloqa'};
 const LBL={heroK:'Ism ustidagi yozuv',nameA:'Ism (1-qator)',nameB:'Familiya (2-qator)',lead:'Bosh matn',cta:'Asosiy tugma',tag:'Qisqa yozuv (logo ostida)',rpH:'Ko‘k panel sarlavhasi',rpP:'Ko‘k panel matni',hl1:'Yorliq 1',hl2:'Yorliq 2',hl3:'Yorliq 3',stH:'Shior matni',stP:'Shior ostidagi matn',svcH:'Xizmatlar sarlavhasi',svcP:'Xizmatlar matni',whyH:'“Nega aynan biz” sarlavhasi',abK:'“Shifokor haqida” yozuvi',abH:'To‘liq ism',abP:'Shifokor haqida matn',f1:'Afzallik 1',f2:'Afzallik 2',f3:'Afzallik 3',f1s:'Rasm yorlig‘i 1',f2s:'Rasm yorlig‘i 2',f3s:'Rasm yorlig‘i 3',prK:'Jarayon yozuvi',prH:'Jarayon sarlavhasi',prcK:'Narxlar yozuvi',prcH:'Narxlar sarlavhasi',prcU:'Narx birligi',prcN:'Narxlar izohi',galK:'Galereya yozuvi',galH:'Galereya sarlavhasi',galE:'Galereya bo‘sh bo‘lsa',clK:'Klinika yozuvi',clH:'Klinika sarlavhasi',clP:'Klinika matni',clE:'Klinika jihozlari',coH:'Aloqa sarlavhasi',coP:'Aloqa matni'};
 const LONG=/lead|abP|clP|coP|stH|stP|svcP|rpP/;
 let S=null,tab='main',token=sessionStorage.getItem('tk'),dirty=false;
@@ -85,15 +85,18 @@ function render(){
  if(tab==='more') h=`<div class="card"><h2>Raqamlar</h2><p class="hint">Masalan: 10+ (yillik tajriba), 1500+ (operatsiya). Raqam sahifada noldan sanab chiqadi.</p>${S.stats.map((s,i)=>`<div class="box"><label>Qiymat</label><input data-s="stats.${i}.v" value="${esc(s.v)}"><label>Yozuv</label>${tri('stats.'+i+'.l',s.l)}<div class="row">${up('stats',i)}${del('stats.'+i)}</div></div>`).join('')}<button class="b" data-add="stats">+ Raqam</button></div>
   <div class="card"><h2>Jarayon bosqichlari</h2>${S.steps.map((s,i)=>`<div class="box"><label>Nomi</label>${tri('steps.'+i+'.t',s.t)}<label>Tavsif</label>${tri('steps.'+i+'.d',s.d,1)}<div class="row">${up('steps',i)}${del('steps.'+i)}</div></div>`).join('')}<button class="b" data-add="steps">+ Bosqich</button></div>
   <div class="card"><h2>Klinika yo‘nalishlari</h2>${S.directions.map((x,i)=>`<div class="box">${tri('directions.'+i,x)}<div class="row">${del('directions.'+i)}</div></div>`).join('')}<button class="b" data-add="directions">+ Yo‘nalish</button></div>`;
+ if(tab==='edu'){S.edu=S.edu||[];S.reviews=S.reviews||{count:'',url:''};h=`<div class="card"><h2>Ta’lim (vaqt chizig‘i)</h2>${S.edu.map((e,i)=>`<div class="box"><label>Yil</label><input data-s="edu.${i}.y" value="${esc(e.y)}"><label>Nomi</label>${tri('edu.'+i+'.t',e.t)}<label>Joyi</label>${tri('edu.'+i+'.d',e.d)}<div class="row">${up('edu',i)}${del('edu.'+i)}</div></div>`).join('')}<button class="b" data-add="edu">+ Qo‘shish</button></div>
+  <div class="card"><h2>Sharhlar (clinics.uz)</h2><label>Sharhlar soni</label><input data-s="reviews.count" value="${esc(S.reviews.count)}"><label>Sharhlar sahifasi havolasi</label><input data-s="reviews.url" value="${esc(S.reviews.url)}"></div>`}
  if(tab==='contacts'){const c=S.contacts;h=`<div class="card"><h2>Aloqa</h2>
   <label>Telefon</label><input data-s="contacts.phone" value="${esc(c.phone)}" placeholder="+998 90 123 45 67">
+  <label>Telefon 2</label><input data-s="contacts.phone2" value="${esc(c.phone2)}">
   <label>Telegram (havola yoki @username)</label><input data-s="contacts.telegram" value="${esc(c.telegram)}">
   <label>Instagram akkauntlar (vergul bilan)</label><input id="ig" value="${esc((S.insta||[]).join(', '))}">
   <label>Manzil</label>${tri('contacts.address',c.address)}<label>Ish vaqti</label>${tri('contacts.hours',c.hours)}</div>`}
  $('#panel').innerHTML=h;
 }
 
-const NEW={services:()=>({t:E(),d:E(),g:'con'}),stats:()=>({v:'',l:E()}),steps:()=>({t:E(),d:E()}),directions:E,prices:()=>({cat:E(),items:[]})};
+const NEW={services:()=>({t:E(),d:E(),g:'con'}),stats:()=>({v:'',l:E()}),steps:()=>({t:E(),d:E()}),directions:E,prices:()=>({cat:E(),items:[]}),edu:()=>({y:'',t:E(),d:E()})};
 document.addEventListener('input',e=>{const el=e.target;
  if(el.dataset.p){get(el.dataset.p)[el.dataset.l]=el.value;mark()}
  else if(el.dataset.s){const k=el.dataset.s.split('.');get(k.slice(0,-1).join('.'))[k.at(-1)]=el.value;mark()}

@@ -45,7 +45,7 @@
   }
  ],
  "contacts": {
-  "phone": "",
+  "phone": "+998 90 601 71 79",
   "telegram": "https://t.me/ismatiodil",
   "address": {
    "uz": "Samarqand, Shohrux ko‘chasi, 27",
@@ -56,7 +56,8 @@
    "uz": "Du–Sha, 08:30–17:00",
    "ru": "Пн–Сб, 08:30–17:00",
    "en": "Mon–Sat, 08:30–17:00"
-  }
+  },
+  "phone2": "+998 66 233 17 40"
  },
  "insta": [
   "ismatidoc",
@@ -80,9 +81,9 @@
    "en": "surgery"
   },
   "lead": {
-   "uz": "Plastik jarroh Odiljon Ismati — ko‘z qovoqlari plastikasi va estetik jarrohlik. Tabiiy natija, yengil tiklanish va har bir bemorga individual yondashuv.",
-   "ru": "Пластический хирург Одилжон Исмати — пластика век и эстетическая хирургия. Естественный результат, мягкое восстановление и индивидуальный подход к каждому пациенту.",
-   "en": "Plastic surgeon Odiljon Ismati — eyelid surgery and aesthetic surgery. Natural results, gentle recovery and an individual approach for every patient."
+   "uz": "Plastik jarroh va uroginekolog, tibbiyot fanlari nomzodi. Ko‘z qovog‘i plastikasi, yuz va tana estetik jarrohligi. Sankt-Peterburgda ta’lim olgan, Samarqanddagi Relax Med Service klinikasida qabul qiladi.",
+   "ru": "Пластический хирург и урогинеколог, кандидат медицинских наук. Пластика век, эстетическая хирургия лица и тела. Обучался в Санкт-Петербурге, принимает в клинике Relax Med Service в Самарканде.",
+   "en": "Plastic surgeon and urogynecologist, Candidate of Medical Sciences. Eyelid surgery, facial and body aesthetic surgery. Trained in Saint Petersburg, practising at Relax Med Service clinic in Samarkand."
   },
   "cta": {
    "uz": "Konsultatsiyaga yozilish",
@@ -135,9 +136,9 @@
    "en": "Odiljon Obidovich Ismati"
   },
   "abP": {
-   "uz": "Jarroh, plastik jarroh. Samarqanddagi «Relax» Clinic Med Servis klinikasida faoliyat yuritadi. Estetik operatsiyalardan keyingi tiklanishni tezlashtirish bo‘yicha ilmiy maqola muallifi (Samarqand davlat tibbiyot universiteti bilan hammualliflikda).",
-   "ru": "Хирург, пластический хирург. Работает в клинике «Relax» Clinic Med Servis в Самарканде. Автор научной статьи об ускорении восстановления после эстетических операций (в соавторстве с Самаркандским государственным медицинским университетом).",
-   "en": "Surgeon and plastic surgeon at Relax Clinic Med Servis in Samarkand. Author of a research paper on faster recovery after aesthetic surgery, co-authored with Samarkand State Medical University."
+   "uz": "Plastik jarroh va uroginekolog, tibbiyot fanlari nomzodi. Sankt-Peterburg davlat tibbiyot universitetini tamomlagan, Mariinskiy shifoxonasida umumiy jarrohlik va endojarrohlik internaturasini, Sankt-Peterburg davlat universitetida uroginekologiya ordinaturasini o‘tagan. 2021-yilda rekonstruktiv va plastik jarrohlik bo‘yicha malaka olgan. Samarqanddagi Relax Med Service klinikasida qabul qiladi.",
+   "ru": "Пластический хирург и урогинеколог, кандидат медицинских наук. Окончил Санкт-Петербургский медицинский университет, прошёл интернатуру по общей хирургии и эндохирургии на базе Мариинской больницы и ординатуру по урогинекологии в СПбГУ. В 2021 году — специализация по реконструктивной и пластической хирургии. Принимает в клинике Relax Med Service в Самарканде.",
+   "en": "Plastic surgeon and urogynecologist, Candidate of Medical Sciences. Graduated from Saint Petersburg Medical University, completed an internship in general and endoscopic surgery at the Mariinsky Hospital and a residency in urogynecology at Saint Petersburg State University. Trained in reconstructive and plastic surgery in 2021. Practises at Relax Med Service clinic in Samarkand."
   },
   "f1": {
    "uz": "Yuqori va pastki blefaroplastika",
@@ -200,9 +201,9 @@
    "en": "Clinic"
   },
   "clH": {
-   "uz": "Ko‘p tarmoqli xususiy klinika",
-   "ru": "Многопрофильная частная клиника",
-   "en": "Multidisciplinary private clinic"
+   "uz": "Relax Med Service klinikasi",
+   "ru": "Клиника Relax Med Service",
+   "en": "Relax Med Service clinic"
   },
   "clP": {
    "uz": "Plastik va estetik jarrohlikka urg‘u berilgan klinika. Shuningdek umumiy jarrohlik, ginekologiya, urologiya, flebologiya, nevrologiya va reabilitatsiya yo‘nalishlari mavjud.",
@@ -280,9 +281,9 @@
    "en": "Why choose us"
   },
   "f1s": {
-   "uz": "PhD jarroh",
-   "ru": "Хирург PhD",
-   "en": "PhD surgeon"
+   "uz": "Tibbiyot fanlari nomzodi",
+   "ru": "Кандидат мед. наук",
+   "en": "Candidate of Medical Sciences"
   },
   "f2s": {
    "uz": "Operatsion blok",
@@ -305,9 +306,34 @@
    "en": "Ismati"
   },
   "heroK": {
-   "uz": "Plastik jarroh · Ko‘z qovog‘i plastikasi",
-   "ru": "Пластический хирург · Пластика век",
-   "en": "Plastic surgeon · Eyelid surgery"
+   "uz": "Plastik jarroh · Uroginekolog",
+   "ru": "Пластический хирург · Урогинеколог",
+   "en": "Plastic surgeon · Urogynecologist"
+  },
+  "eduK": {
+   "uz": "Ta’lim",
+   "ru": "Образование",
+   "en": "Education"
+  },
+  "eduH": {
+   "uz": "Ta’lim va malaka",
+   "ru": "Образование и квалификация",
+   "en": "Education and training"
+  },
+  "revT": {
+   "uz": "ta bemor sharhi",
+   "ru": "отзывов пациентов",
+   "en": "patient reviews"
+  },
+  "revB": {
+   "uz": "Sharhlarni o‘qish",
+   "ru": "Читать отзывы",
+   "en": "Read reviews"
+  },
+  "conK": {
+   "uz": "Konsultatsiya narxi",
+   "ru": "Стоимость консультации",
+   "en": "Consultation fee"
   }
  },
  "services": [
@@ -388,31 +414,44 @@
     "en": "Labiaplasty and aesthetic correction"
    },
    "g": "con"
+  },
+  {
+   "t": {
+    "uz": "Uroginekologiya",
+    "ru": "Урогинекология",
+    "en": "Urogynecology"
+   },
+   "d": {
+    "uz": "Siydik tuta olmaslik, prolaps va tos tubi jarrohligi",
+    "ru": "Недержание мочи, пролапс и хирургия тазового дна",
+    "en": "Incontinence, prolapse and pelvic floor surgery"
+   },
+   "g": "con"
   }
  ],
  "stats": [
   {
    "v": "PhD",
    "l": {
-    "uz": "ilmiy daraja",
-    "ru": "учёная степень",
-    "en": "academic degree"
+    "uz": "tibbiyot fanlari nomzodi",
+    "ru": "кандидат мед. наук",
+    "en": "Candidate of Medical Sciences"
    }
   },
   {
-   "v": "6+",
+   "v": "10+",
    "l": {
-    "uz": "jarrohlik yo‘nalishi",
-    "ru": "хирургических направлений",
-    "en": "surgical areas"
+    "uz": "yillik tajriba",
+    "ru": "лет опыта",
+    "en": "years of experience"
    }
   },
   {
-   "v": "60+",
+   "v": "92",
    "l": {
-    "uz": "turdagi xizmat",
-    "ru": "видов услуг",
-    "en": "types of services"
+    "uz": "bemor sharhi",
+    "ru": "отзыва пациентов",
+    "en": "patient reviews"
    }
   },
   {
@@ -512,6 +551,31 @@
   }
  ],
  "prices": [
+  {
+   "cat": {
+    "uz": "Konsultatsiyalar",
+    "ru": "Консультации",
+    "en": "Consultations"
+   },
+   "items": [
+    {
+     "t": {
+      "uz": "Plastik jarroh birlamchi konsultatsiyasi",
+      "ru": "Первичная консультация пластического хирурга",
+      "en": "Plastic surgeon initial consultation"
+     },
+     "p": "0,15"
+    },
+    {
+     "t": {
+      "uz": "Uroginekolog birlamchi konsultatsiyasi",
+      "ru": "Первичная консультация урогинеколога",
+      "en": "Urogynecologist initial consultation"
+     },
+     "p": "0,15"
+    }
+   ]
+  },
   {
    "cat": {
     "uz": "Yuz va qovoq plastikasi",
@@ -1045,6 +1109,64 @@
      "p": "18"
     }
    ]
+  }
+ ],
+ "reviews": {
+  "count": "92",
+  "url": "https://samarkand.clinics.uz/catalog/medical-centers/cosmetology/relax-med-service/doc/ismati-odilzhon-obidovich#docReview"
+ },
+ "edu": [
+  {
+   "y": "2021",
+   "t": {
+    "uz": "Rekonstruktiv va plastik jarrohlik",
+    "ru": "Реконструктивная и пластическая хирургия",
+    "en": "Reconstructive and plastic surgery"
+   },
+   "d": {
+    "uz": "Mutaxassislik bo‘yicha malaka",
+    "ru": "Специализация",
+    "en": "Specialization"
+   }
+  },
+  {
+   "y": "2015–2017",
+   "t": {
+    "uz": "Uroginekologiya ordinaturasi",
+    "ru": "Ординатура по урогинекологии",
+    "en": "Residency in urogynecology"
+   },
+   "d": {
+    "uz": "Sankt-Peterburg davlat universiteti",
+    "ru": "Санкт-Петербургский государственный университет",
+    "en": "Saint Petersburg State University"
+   }
+  },
+  {
+   "y": "2015",
+   "t": {
+    "uz": "Umumiy jarrohlik va endojarrohlik internaturasi",
+    "ru": "Интернатура по общей хирургии и эндохирургии",
+    "en": "Internship in general and endoscopic surgery"
+   },
+   "d": {
+    "uz": "Sankt-Peterburg, Mariinskiy shifoxonasi",
+    "ru": "Санкт-Петербург, Мариинская больница",
+    "en": "Saint Petersburg, Mariinsky Hospital"
+   }
+  },
+  {
+   "y": "2014",
+   "t": {
+    "uz": "Davolash ishi",
+    "ru": "Лечебное дело",
+    "en": "General medicine"
+   },
+   "d": {
+    "uz": "Sankt-Peterburg tibbiyot universiteti",
+    "ru": "Санкт-Петербургский медицинский университет",
+    "en": "Saint Petersburg Medical University"
+   }
   }
  ]
 }

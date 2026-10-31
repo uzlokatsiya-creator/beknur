@@ -1,0 +1,82 @@
+(() => {
+  const d = document, $ = (s, r = d) => r.querySelector(s), $$ = (s, r = d) => [...r.querySelectorAll(s)];
+  const root = d.documentElement;
+  root.classList.add("js");
+  requestAnimationFrame(() => setTimeout(() => root.classList.add("ready"), 40));
+  const F = JSON.parse($("#i18n").textContent);
+  const gtag = (...a) => { if (typeof window.gtag === "function") window.gtag(...a); };
+
+  // header shadow + floating button
+  const hdr = $("#hdr"), fab = $("#fab");
+  const onScroll = () => { const y = scrollY; hdr.classList.toggle("sc", y > 10); fab && fab.classList.toggle("on", y > innerHeight * 0.8); };
+  addEventListener("scroll", onScroll, { passive: true }); onScroll();
+
+  // mobile menu
+  const burger = $("#burger"), mnav = $("#mnav");
+  const setMenu = (open) => { mnav.hidden = !open; d.body.classList.toggle("menu-open", open); burger.setAttribute("aria-expanded", open); d.body.style.overflow = open ? "hidden" : ""; };
+  burger.addEventListener("click", () => setMenu(mnav.hidden));
+  mnav.addEventListener("click", (e) => { if (e.target.closest("a")) setMenu(false); });
+  addEventListener("keydown", (e) => { if (e.key === "Escape") { setMenu(false); closeLb(); } });
+
+  // reveal on scroll
+  if ("IntersectionObserver" in window) {
+    const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { rootMargin: "0px 0px -8% 0px" });
+    $$(".rv").forEach((el) => io.observe(el));
+  } else $$(".rv").forEach((el) => el.classList.add("in"));
+
+  // price tabs
+  $$(".tabs button").forEach((b) => b.addEventListener("click", () => {
+    $$(".tabs button").forEach((x) => x.classList.toggle("on", x === b));
+    const c = b.dataset.c;
+    $$(".pcat").forEach((p) => { const show = c === "-1" || p.dataset.c === c; p.hidden = !show; if (show && c !== "-1") p.open = true; });
+  }));
+
+  // reviews: tap to expand
+  $$(".rev").forEach((r) => r.addEventListener("click", () => r.classList.toggle("open")));
+
+  // lightbox (diplomas, gallery)
+  const lb = $("#lb");
+  function closeLb() { if (!lb.hidden) { lb.hidden = true; d.body.style.overflow = ""; } }
+  d.addEventListener("click", (e) => {
+    const t = e.target.closest("[data-full]");
+    if (t) { $("img", lb).src = t.dataset.full; $("img", lb).alt = t.dataset.cap || ""; $("figcaption", lb).textContent = t.dataset.cap || ""; lb.hidden = false; d.body.style.overflow = "hidden"; return; }
+    if (e.target.closest("#lb")) closeLb();
+    const ev = e.target.closest("[data-ev]");
+    if (ev) gtag("event", "contact_click", { method: ev.dataset.ev });
+  });
+
+  // ad click ids / utm for lead attribution
+  try {
+    const q = new URLSearchParams(location.search), keep = {};
+    ["gclid", "gbraid", "wbraid", "utm_source", "utm_medium", "utm_campaign", "utm_term"].forEach((k) => { if (q.get(k)) keep[k] = q.get(k).slice(0, 120); });
+    if (Object.keys(keep).length) sessionStorage.setItem("src", JSON.stringify(keep));
+  } catch {}
+
+  // lead form
+  const f = $("#lead"); if (!f) return;
+  const t0 = Date.now();
+  const fmt = (v) => { let x = v.replace(/\D/g, ""); if (x.length > 9 && x.startsWith("998")) x = x.slice(3); x = x.slice(0, 9); return [x.slice(0, 2), x.slice(2, 5), x.slice(5, 7), x.slice(7, 9)].filter(Boolean).join(" "); };
+  f.phone.addEventListener("input", () => { f.phone.value = fmt(f.phone.value); f.phone.parentElement.classList.remove("bad"); });
+  f.name.addEventListener("input", () => f.name.classList.remove("bad"));
+  const msg = $("#lmsg"), btn = $("button[type=submit]", f);
+  f.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const data = Object.fromEntries(new FormData(f));
+    const okN = data.name.trim().length > 1, okP = data.phone.replace(/\D/g, "").length === 9;
+    f.name.classList.toggle("bad", !okN); f.phone.parentElement.classList.toggle("bad", !okP);
+    if (!okN || !okP) { msg.className = "lmsg err"; msg.textContent = F.req; return; }
+    data.phone = "+998 " + data.phone; data.lang = d.body.dataset.lang; data.t = Date.now() - t0; data.page = location.pathname;
+    try { data.src = JSON.parse(sessionStorage.getItem("src") || "null"); } catch {}
+    btn.disabled = true; msg.className = "lmsg"; msg.textContent = F.sending;
+    try {
+      const r = await fetch("/api/lead", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(data) });
+      if (r.status === 429) { msg.className = "lmsg err"; msg.textContent = F.wait; return; }
+      if (!r.ok) throw 0;
+      msg.className = "lmsg ok"; msg.textContent = F.ok; f.reset();
+      gtag("event", "generate_lead", { service: data.service });
+      const aw = d.body.dataset.aw, lbl = d.body.dataset.awl;
+      if (aw && lbl) gtag("event", "conversion", { send_to: aw + "/" + lbl });
+    } catch { msg.className = "lmsg err"; msg.textContent = F.err; }
+    finally { btn.disabled = false; }
+  });
+})();

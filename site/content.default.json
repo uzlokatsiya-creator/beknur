@@ -1,0 +1,1050 @@
+{
+ "lang": "uz",
+ "photo": "/assets/4.webp",
+ "aboutPhoto": "/assets/3.webp",
+ "gallery": [
+  {
+   "url": "/assets/2.webp",
+   "c": {
+    "uz": "PhD diplomi, SamDTU",
+    "ru": "Вручение диплома PhD, СамГМУ",
+    "en": "PhD diploma, SamSMU"
+   }
+  },
+  {
+   "url": "/assets/3.webp",
+   "c": {
+    "uz": "Blefaroplastikadan oldin konsultatsiya",
+    "ru": "Консультация перед блефаропластикой",
+    "en": "Consultation before blepharoplasty"
+   }
+  },
+  {
+   "url": "/assets/5.webp",
+   "c": {
+    "uz": "Hamkasblar bilan tajriba almashish",
+    "ru": "Обмен опытом с коллегами",
+    "en": "Exchange with colleagues"
+   }
+  },
+  {
+   "url": "/assets/1.webp",
+   "c": {
+    "uz": "Tibbiyot universitetini bitirish",
+    "ru": "Выпуск медицинского университета",
+    "en": "Medical school graduation"
+   }
+  },
+  {
+   "url": "/assets/4.webp",
+   "c": {
+    "uz": "Doktor Ismati",
+    "ru": "Доктор Исмати",
+    "en": "Dr. Ismati"
+   }
+  }
+ ],
+ "contacts": {
+  "phone": "",
+  "telegram": "https://t.me/ismatiodil",
+  "address": {
+   "uz": "Samarqand, Shohrux ko‘chasi, 27",
+   "ru": "Самарканд, ул. Шохрух, 27",
+   "en": "27 Shokhrukh St, Samarkand"
+  },
+  "hours": {
+   "uz": "Du–Sha, 08:30–17:00",
+   "ru": "Пн–Сб, 08:30–17:00",
+   "en": "Mon–Sat, 08:30–17:00"
+  }
+ },
+ "insta": [
+  "ismatidoc",
+  "doctorismati",
+  "blefaroplastika.sam"
+ ],
+ "t": {
+  "tag": {
+   "uz": "Plastik jarroh · Samarqand",
+   "ru": "Пластический хирург · Самарканд",
+   "en": "Plastic surgeon · Samarkand"
+  },
+  "h1a": {
+   "uz": "Ko‘z qovog‘i",
+   "ru": "Пластика",
+   "en": "Eyelid"
+  },
+  "h1b": {
+   "uz": "plastikasi",
+   "ru": "век",
+   "en": "surgery"
+  },
+  "lead": {
+   "uz": "Plastik jarroh Odiljon Ismati — ko‘z qovoqlari plastikasi va estetik jarrohlik. Tabiiy natija, yengil tiklanish va har bir bemorga individual yondashuv.",
+   "ru": "Пластический хирург Одилжон Исмати — пластика век и эстетическая хирургия. Естественный результат, мягкое восстановление и индивидуальный подход к каждому пациенту.",
+   "en": "Plastic surgeon Odiljon Ismati — eyelid surgery and aesthetic surgery. Natural results, gentle recovery and an individual approach for every patient."
+  },
+  "cta": {
+   "uz": "Konsultatsiyaga yozilish",
+   "ru": "Записаться на консультацию",
+   "en": "Book a consultation"
+  },
+  "cta2": {
+   "uz": "Natijalar",
+   "ru": "Результаты",
+   "en": "Results"
+  },
+  "chip1": {
+   "uz": "Asosiy yo‘nalish",
+   "ru": "Главное направление",
+   "en": "Main focus"
+  },
+  "chip1v": {
+   "uz": "Qovoqlar",
+   "ru": "Веки",
+   "en": "Eyelids"
+  },
+  "chip2": {
+   "uz": "Ilmiy daraja",
+   "ru": "Учёная степень",
+   "en": "Degree"
+  },
+  "chip2v": {
+   "uz": "PhD",
+   "ru": "PhD",
+   "en": "PhD"
+  },
+  "svcK": {
+   "uz": "Xizmatlar",
+   "ru": "Услуги",
+   "en": "Services"
+  },
+  "svcH": {
+   "uz": "Xizmatlar",
+   "ru": "Наши услуги",
+   "en": "Our services"
+  },
+  "abK": {
+   "uz": "Shifokor haqida",
+   "ru": "О враче",
+   "en": "About the doctor"
+  },
+  "abH": {
+   "uz": "Ismati Odiljon Obidovich",
+   "ru": "Исмати Одилжон Обидович",
+   "en": "Odiljon Obidovich Ismati"
+  },
+  "abP": {
+   "uz": "Jarroh, plastik jarroh. Samarqanddagi «Relax» Clinic Med Servis klinikasida faoliyat yuritadi. Estetik operatsiyalardan keyingi tiklanishni tezlashtirish bo‘yicha ilmiy maqola muallifi (Samarqand davlat tibbiyot universiteti bilan hammualliflikda).",
+   "ru": "Хирург, пластический хирург. Работает в клинике «Relax» Clinic Med Servis в Самарканде. Автор научной статьи об ускорении восстановления после эстетических операций (в соавторстве с Самаркандским государственным медицинским университетом).",
+   "en": "Surgeon and plastic surgeon at Relax Clinic Med Servis in Samarkand. Author of a research paper on faster recovery after aesthetic surgery, co-authored with Samarkand State Medical University."
+  },
+  "f1": {
+   "uz": "Yuqori va pastki blefaroplastika",
+   "ru": "Верхняя и нижняя блефаропластика",
+   "en": "Upper and lower blepharoplasty"
+  },
+  "f2": {
+   "uz": "Operatsiyadan oldin batafsil konsultatsiya",
+   "ru": "Подробная консультация до операции",
+   "en": "Detailed pre-op consultation"
+  },
+  "f3": {
+   "uz": "Tiklanish davrida doimiy nazorat",
+   "ru": "Наблюдение в период восстановления",
+   "en": "Follow-up through recovery"
+  },
+  "stK": {
+   "uz": "Raqamlarda",
+   "ru": "В цифрах",
+   "en": "In numbers"
+  },
+  "galK": {
+   "uz": "Faoliyat",
+   "ru": "Деятельность",
+   "en": "Activity"
+  },
+  "galH": {
+   "uz": "Faoliyatdan lavhalar",
+   "ru": "Моменты работы",
+   "en": "Moments from practice"
+  },
+  "galE": {
+   "uz": "Natija rasmlari tez orada qo‘shiladi",
+   "ru": "Фото результатов скоро появятся",
+   "en": "Result photos coming soon"
+  },
+  "prK": {
+   "uz": "Qanday ishlaymiz",
+   "ru": "Как мы работаем",
+   "en": "How it works"
+  },
+  "prH": {
+   "uz": "Konsultatsiyadan natijagacha",
+   "ru": "От консультации до результата",
+   "en": "From consultation to result"
+  },
+  "coH": {
+   "uz": "Konsultatsiyaga yoziling",
+   "ru": "Запишитесь на консультацию",
+   "en": "Book your consultation"
+  },
+  "coP": {
+   "uz": "Savollaringizni yozing yoki qo‘ng‘iroq qiling — sizga mos yechimni birga tanlaymiz.",
+   "ru": "Напишите или позвоните — вместе подберём подходящее решение.",
+   "en": "Message or call us and we will choose the right option together."
+  },
+  "clK": {
+   "uz": "Klinika",
+   "ru": "Клиника",
+   "en": "Clinic"
+  },
+  "clH": {
+   "uz": "Ko‘p tarmoqli xususiy klinika",
+   "ru": "Многопрофильная частная клиника",
+   "en": "Multidisciplinary private clinic"
+  },
+  "clP": {
+   "uz": "Plastik va estetik jarrohlikka urg‘u berilgan klinika. Shuningdek umumiy jarrohlik, ginekologiya, urologiya, flebologiya, nevrologiya va reabilitatsiya yo‘nalishlari mavjud.",
+   "ru": "Клиника с акцентом на пластическую и эстетическую хирургию, а также общую хирургию, гинекологию, урологию, флебологию, неврологию и реабилитацию.",
+   "en": "A clinic focused on plastic and aesthetic surgery, also offering general surgery, gynecology, urology, phlebology, neurology and rehabilitation."
+  },
+  "clE": {
+   "uz": "O‘z operatsiya bloki va jarrohlik bemorlari uchun statsionar",
+   "ru": "Собственный операционный блок и стационар для хирургических пациентов",
+   "en": "Own operating block and inpatient ward for surgical patients"
+  },
+  "prcK": {
+   "uz": "Narxlar katalogi",
+   "ru": "Каталог цен",
+   "en": "Price catalog"
+  },
+  "prcH": {
+   "uz": "Operatsiyalar va o‘rtacha narxlar",
+   "ru": "Операции и средняя стоимость",
+   "en": "Procedures and average prices"
+  },
+  "prcU": {
+   "uz": "mln so‘m",
+   "ru": "млн сум",
+   "en": "mln UZS"
+  },
+  "prcN": {
+   "uz": "Narxlar taxminiy. Aniq narx konsultatsiyadan so‘ng belgilanadi.",
+   "ru": "Цены ориентировочные. Точная стоимость определяется после консультации.",
+   "en": "Prices are approximate. The exact price is set after consultation."
+  },
+  "rpH": {
+   "uz": "Zamonaviy usullar va xavfsiz jarrohlik",
+   "ru": "Современные методы и безопасная хирургия",
+   "en": "Modern methods, safe surgery"
+  },
+  "rpP": {
+   "uz": "O‘z operatsion bloki, statsionar va operatsiyadan keyingi doimiy nazorat.",
+   "ru": "Собственный операционный блок, стационар и наблюдение после операции.",
+   "en": "Own operating unit, inpatient ward and close post-op follow-up."
+  },
+  "hl1": {
+   "uz": "Tajriba",
+   "ru": "Опыт",
+   "en": "Experience"
+  },
+  "hl2": {
+   "uz": "Ishonch",
+   "ru": "Доверие",
+   "en": "Trust"
+  },
+  "hl3": {
+   "uz": "Tabiiy natija",
+   "ru": "Естественный результат",
+   "en": "Natural result"
+  },
+  "stH": {
+   "uz": "Biz zamonaviy jarrohlik usullarini insoniy yondashuv bilan birlashtiramiz — har bir bemor o‘zini xotirjam va ishonchli his qilishi uchun.",
+   "ru": "Мы сочетаем современные хирургические методы с человеческим подходом — чтобы каждый пациент чувствовал себя спокойно и уверенно.",
+   "en": "We combine modern surgical techniques with a human approach so every patient feels calm and confident."
+  },
+  "stP": {
+   "uz": "Har bir operatsiya batafsil konsultatsiya va individual rejadan boshlanadi.",
+   "ru": "Каждая операция начинается с подробной консультации и индивидуального плана.",
+   "en": "Every procedure starts with a detailed consultation and a personal plan."
+  },
+  "svcP": {
+   "uz": "Ko‘z qovoqlari plastikasidan tortib yuz va tana estetik jarrohligigacha — konsultatsiyadan to‘liq tiklanishgacha.",
+   "ru": "От пластики век до эстетической хирургии лица и тела — от консультации до полного восстановления.",
+   "en": "From eyelid surgery to facial and body aesthetics — from consultation to full recovery."
+  },
+  "whyH": {
+   "uz": "Nega aynan biz",
+   "ru": "Почему мы",
+   "en": "Why choose us"
+  },
+  "f1s": {
+   "uz": "PhD jarroh",
+   "ru": "Хирург PhD",
+   "en": "PhD surgeon"
+  },
+  "f2s": {
+   "uz": "Operatsion blok",
+   "ru": "Операционный блок",
+   "en": "Operating unit"
+  },
+  "f3s": {
+   "uz": "Individual yondashuv",
+   "ru": "Индивидуальный подход",
+   "en": "Personal approach"
+  },
+  "nameA": {
+   "uz": "Odiljon",
+   "ru": "Одилжон",
+   "en": "Odiljon"
+  },
+  "nameB": {
+   "uz": "Ismati",
+   "ru": "Исмати",
+   "en": "Ismati"
+  },
+  "heroK": {
+   "uz": "Plastik jarroh · Ko‘z qovog‘i plastikasi",
+   "ru": "Пластический хирург · Пластика век",
+   "en": "Plastic surgeon · Eyelid surgery"
+  }
+ },
+ "services": [
+  {
+   "t": {
+    "uz": "Blefaroplastika",
+    "ru": "Блефаропластика",
+    "en": "Blepharoplasty"
+   },
+   "d": {
+    "uz": "Yuqori, pastki va aylana ko‘z qovoqlari plastikasi",
+    "ru": "Верхняя, нижняя и круговая пластика век",
+    "en": "Upper, lower and circular eyelid surgery"
+   },
+   "g": "up"
+  },
+  {
+   "t": {
+    "uz": "Yuz va bo‘yin tortish",
+    "ru": "Подтяжка лица и шеи",
+    "en": "Face and neck lift"
+   },
+   "d": {
+    "uz": "SMAS-lifting bilan yoshartirish",
+    "ru": "Омоложение методом SMAS-лифтинга",
+    "en": "Rejuvenation with SMAS lift"
+   },
+   "g": "face"
+  },
+  {
+   "t": {
+    "uz": "Rinoplastika va otoplastika",
+    "ru": "Ринопластика и отопластика",
+    "en": "Rhinoplasty and otoplasty"
+   },
+   "d": {
+    "uz": "Burun va quloq shaklini to‘g‘rilash",
+    "ru": "Коррекция формы носа и ушей",
+    "en": "Reshaping of nose and ears"
+   },
+   "g": "nose"
+  },
+  {
+   "t": {
+    "uz": "Ko‘krak plastikasi",
+    "ru": "Пластика груди",
+    "en": "Breast surgery"
+   },
+   "d": {
+    "uz": "Kattalashtirish, kichraytirish va tortish",
+    "ru": "Увеличение, уменьшение и подтяжка",
+    "en": "Augmentation, reduction and lift"
+   },
+   "g": "body"
+  },
+  {
+   "t": {
+    "uz": "Abdominoplastika va liposaksiya",
+    "ru": "Абдоминопластика и липосакция",
+    "en": "Tummy tuck and liposuction"
+   },
+   "d": {
+    "uz": "Tana konturini tiklash, lipofiling",
+    "ru": "Коррекция контуров тела, липофилинг",
+    "en": "Body contouring, lipofilling"
+   },
+   "g": "body"
+  },
+  {
+   "t": {
+    "uz": "Intim plastika",
+    "ru": "Интимная пластика",
+    "en": "Intimate surgery"
+   },
+   "d": {
+    "uz": "Labioplastika va estetik korreksiya",
+    "ru": "Лабиопластика и эстетическая коррекция",
+    "en": "Labiaplasty and aesthetic correction"
+   },
+   "g": "con"
+  }
+ ],
+ "stats": [
+  {
+   "v": "PhD",
+   "l": {
+    "uz": "ilmiy daraja",
+    "ru": "учёная степень",
+    "en": "academic degree"
+   }
+  },
+  {
+   "v": "6+",
+   "l": {
+    "uz": "jarrohlik yo‘nalishi",
+    "ru": "хирургических направлений",
+    "en": "surgical areas"
+   }
+  },
+  {
+   "v": "60+",
+   "l": {
+    "uz": "turdagi xizmat",
+    "ru": "видов услуг",
+    "en": "types of services"
+   }
+  },
+  {
+   "v": "6",
+   "l": {
+    "uz": "kun qabul, haftada",
+    "ru": "дней приёма в неделю",
+    "en": "days a week"
+   }
+  }
+ ],
+ "steps": [
+  {
+   "t": {
+    "uz": "Konsultatsiya",
+    "ru": "Консультация",
+    "en": "Consultation"
+   },
+   "d": {
+    "uz": "Ko‘rik va istaklaringizni muhokama qilish",
+    "ru": "Осмотр и обсуждение пожеланий",
+    "en": "Exam and discussing your goals"
+   }
+  },
+  {
+   "t": {
+    "uz": "Tahlillar",
+    "ru": "Анализы",
+    "en": "Tests"
+   },
+   "d": {
+    "uz": "Operatsiyadan oldingi tekshiruvlar",
+    "ru": "Предоперационное обследование",
+    "en": "Pre-operative checks"
+   }
+  },
+  {
+   "t": {
+    "uz": "Operatsiya",
+    "ru": "Операция",
+    "en": "Surgery"
+   },
+   "d": {
+    "uz": "Zamonaviy usullar bilan, xavfsiz sharoitda",
+    "ru": "Современными методами в безопасных условиях",
+    "en": "Modern techniques in a safe setting"
+   }
+  },
+  {
+   "t": {
+    "uz": "Tiklanish",
+    "ru": "Восстановление",
+    "en": "Recovery"
+   },
+   "d": {
+    "uz": "Shifokor nazoratida tiklanish va natija",
+    "ru": "Восстановление под контролем врача",
+    "en": "Recovery under the doctor’s care"
+   }
+  }
+ ],
+ "directions": [
+  {
+   "uz": "Umumiy jarrohlik",
+   "ru": "Общая хирургия",
+   "en": "General surgery"
+  },
+  {
+   "uz": "Ginekologiya",
+   "ru": "Гинекология",
+   "en": "Gynecology"
+  },
+  {
+   "uz": "Urologiya",
+   "ru": "Урология",
+   "en": "Urology"
+  },
+  {
+   "uz": "Flebologiya",
+   "ru": "Флебология",
+   "en": "Phlebology"
+  },
+  {
+   "uz": "Nevrologiya",
+   "ru": "Неврология",
+   "en": "Neurology"
+  },
+  {
+   "uz": "Fizioterapiya, DJT, massaj",
+   "ru": "Физиотерапия, ЛФК, массаж",
+   "en": "Physiotherapy, exercise therapy, massage"
+  },
+  {
+   "uz": "Reabilitatsiya",
+   "ru": "Реабилитация",
+   "en": "Rehabilitation"
+  }
+ ],
+ "prices": [
+  {
+   "cat": {
+    "uz": "Yuz va qovoq plastikasi",
+    "ru": "Пластика лица и век",
+    "en": "Face and eyelid surgery"
+   },
+   "items": [
+    {
+     "t": {
+      "ru": "Верхняя блефаропластика",
+      "uz": "Yuqori blefaroplastika",
+      "en": "Upper blepharoplasty"
+     },
+     "p": "3–4"
+    },
+    {
+     "t": {
+      "ru": "Нижняя блефаропластика",
+      "uz": "Pastki blefaroplastika",
+      "en": "Lower blepharoplasty"
+     },
+     "p": "3–4"
+    },
+    {
+     "t": {
+      "ru": "Круговая блефаропластика",
+      "uz": "Aylana blefaroplastika",
+      "en": "Upper and lower blepharoplasty"
+     },
+     "p": "5–8"
+    },
+    {
+     "t": {
+      "ru": "Отопластика",
+      "uz": "Otoplastika",
+      "en": "Otoplasty"
+     },
+     "p": "4–6"
+    },
+    {
+     "t": {
+      "ru": "Подтяжка лица (SMAS)",
+      "uz": "Yuz tortish (SMAS)",
+      "en": "Facelift (SMAS)"
+     },
+     "p": "12–26"
+    }
+   ]
+  },
+  {
+   "cat": {
+    "uz": "Tana plastikasi",
+    "ru": "Пластика тела",
+    "en": "Body surgery"
+   },
+   "items": [
+    {
+     "t": {
+      "ru": "Липосакция (1–2 зоны)",
+      "uz": "Liposaksiya (1–2 zona)",
+      "en": "Liposuction (1–2 areas)"
+     },
+     "p": "2–4"
+    },
+    {
+     "t": {
+      "ru": "Абдоминопластика",
+      "uz": "Abdominoplastika",
+      "en": "Abdominoplasty"
+     },
+     "p": "12–24"
+    },
+    {
+     "t": {
+      "ru": "Увеличение груди (с имплантами)",
+      "uz": "Ko‘krakni kattalashtirish (implant bilan)",
+      "en": "Breast augmentation (implants)"
+     },
+     "p": "10–18"
+    },
+    {
+     "t": {
+      "ru": "Подтяжка груди",
+      "uz": "Ko‘krakni tortish",
+      "en": "Breast lift"
+     },
+     "p": "12–18"
+    },
+    {
+     "t": {
+      "ru": "Уменьшение груди",
+      "uz": "Ko‘krakni kichraytirish",
+      "en": "Breast reduction"
+     },
+     "p": "12–19"
+    },
+    {
+     "t": {
+      "ru": "Лабиопластика",
+      "uz": "Labioplastika",
+      "en": "Labiaplasty"
+     },
+     "p": "3–6"
+    }
+   ]
+  },
+  {
+   "cat": {
+    "uz": "Uroginekologiya",
+    "ru": "Урогинекология",
+    "en": "Urogynecology"
+   },
+   "items": [
+    {
+     "t": {
+      "ru": "Осмотр в кресле",
+      "uz": "Kresloda ko‘rik",
+      "en": "Gynecological examination"
+     },
+     "p": "0,06–0,15"
+    },
+    {
+     "t": {
+      "ru": "УЗИ органов малого таза",
+      "uz": "Kichik chanoq a’zolari UZI",
+      "en": "Pelvic ultrasound"
+     },
+     "p": "0,15"
+    },
+    {
+     "t": {
+      "ru": "Комплексная консультация + УЗИ",
+      "uz": "Kompleks konsultatsiya + UZI",
+      "en": "Full consultation + ultrasound"
+     },
+     "p": "0,3"
+    },
+    {
+     "t": {
+      "ru": "Уродинамическое исследование",
+      "uz": "Urodinamik tekshiruv",
+      "en": "Urodynamic study"
+     },
+     "p": "0,5"
+    },
+    {
+     "t": {
+      "ru": "Цистоскопия (без анестезии/стационара)",
+      "uz": "Sistoskopiya (anesteziya/statsionarsiz)",
+      "en": "Cystoscopy (no anesthesia/stay)"
+     },
+     "p": "0,4"
+    },
+    {
+     "t": {
+      "ru": "Лечение стрессового недержания мочи (TVT/TOT)",
+      "uz": "Stress siydik tuta olmaslikni davolash (TVT/TOT)",
+      "en": "Stress urinary incontinence treatment (TVT/TOT)"
+     },
+     "p": "4–8"
+    },
+    {
+     "t": {
+      "ru": "Передняя кольпорафия",
+      "uz": "Oldingi kolporafiya",
+      "en": "Anterior colporrhaphy"
+     },
+     "p": "4–8"
+    },
+    {
+     "t": {
+      "ru": "Задняя кольпорафия",
+      "uz": "Orqa kolporafiya",
+      "en": "Posterior colporrhaphy"
+     },
+     "p": "4–8"
+    },
+    {
+     "t": {
+      "ru": "Передняя + задняя кольпорафия",
+      "uz": "Oldingi + orqa kolporafiya",
+      "en": "Anterior + posterior colporrhaphy"
+     },
+     "p": "6–12"
+    },
+    {
+     "t": {
+      "ru": "Сакроспинальная фиксация",
+      "uz": "Sakrospinal fiksatsiya",
+      "en": "Sacrospinous fixation"
+     },
+     "p": "10"
+    },
+    {
+     "t": {
+      "ru": "Сетчатые (mesh) операции при пролапсе",
+      "uz": "Prolapsda mesh operatsiyalari",
+      "en": "Mesh surgery for prolapse"
+     },
+     "p": "10"
+    }
+   ]
+  },
+  {
+   "cat": {
+    "uz": "Flebologiya",
+    "ru": "Флебология",
+    "en": "Phlebology"
+   },
+   "items": [
+    {
+     "t": {
+      "ru": "УЗДС вен обеих нижних конечностей",
+      "uz": "Ikkala oyoq venalari UZDS",
+      "en": "Duplex ultrasound of leg veins"
+     },
+     "p": "0,15"
+    },
+    {
+     "t": {
+      "ru": "Консультация + УЗДС",
+      "uz": "Konsultatsiya + UZDS",
+      "en": "Consultation + duplex ultrasound"
+     },
+     "p": "0,3"
+    },
+    {
+     "t": {
+      "ru": "Склеротерапия (1 сеанс)",
+      "uz": "Skleroterapiya (1 seans)",
+      "en": "Sclerotherapy (1 session)"
+     },
+     "p": "0,8–2,5"
+    },
+    {
+     "t": {
+      "ru": "Микросклеротерапия сосудистых звёздочек",
+      "uz": "Tomir yulduzchalari mikroskleroterapiyasi",
+      "en": "Spider vein microsclerotherapy"
+     },
+     "p": "0,7–2"
+    },
+    {
+     "t": {
+      "ru": "Минифлебэктомия (1 конечность)",
+      "uz": "Miniflebektomiya (1 oyoq)",
+      "en": "Miniphlebectomy (1 leg)"
+     },
+     "p": "1,2–3,5"
+    },
+    {
+     "t": {
+      "ru": "ЭВЛК одной магистральной вены",
+      "uz": "Bitta magistral vena EVLK",
+      "en": "EVLA of one main vein"
+     },
+     "p": "4–7"
+    },
+    {
+     "t": {
+      "ru": "ЭВЛК + минифлебэктомия",
+      "uz": "EVLK + miniflebektomiya",
+      "en": "EVLA + miniphlebectomy"
+     },
+     "p": "7"
+    },
+    {
+     "t": {
+      "ru": "Радиочастотная абляция (РЧА)",
+      "uz": "Radiochastotali ablyatsiya (RChA)",
+      "en": "Radiofrequency ablation (RFA)"
+     },
+     "p": "7"
+    },
+    {
+     "t": {
+      "ru": "Послеоперационный осмотр",
+      "uz": "Operatsiyadan keyingi ko‘rik",
+      "en": "Post-operative check-up"
+     },
+     "p": "0,15"
+    }
+   ]
+  },
+  {
+   "cat": {
+    "uz": "Umumiy jarrohlik",
+    "ru": "Общая хирургия",
+    "en": "General surgery"
+   },
+   "items": [
+    {
+     "t": {
+      "ru": "Осмотр с перевязкой",
+      "uz": "Bog‘lov bilan ko‘rik",
+      "en": "Examination with dressing"
+     },
+     "p": "0,15–0,3"
+    },
+    {
+     "t": {
+      "ru": "Простая перевязка",
+      "uz": "Oddiy bog‘lov",
+      "en": "Simple dressing"
+     },
+     "p": "0,08–0,15"
+    },
+    {
+     "t": {
+      "ru": "Сложная перевязка",
+      "uz": "Murakkab bog‘lov",
+      "en": "Complex dressing"
+     },
+     "p": "0,15–0,35"
+    },
+    {
+     "t": {
+      "ru": "Снятие швов",
+      "uz": "Choklarni olish",
+      "en": "Suture removal"
+     },
+     "p": "0,1–0,25"
+    },
+    {
+     "t": {
+      "ru": "Первичная хирургическая обработка раны",
+      "uz": "Jarohatga birlamchi jarrohlik ishlovi",
+      "en": "Primary wound treatment"
+     },
+     "p": "0,3–0,8"
+    },
+    {
+     "t": {
+      "ru": "Наложение швов на рану",
+      "uz": "Jarohatga chok qo‘yish",
+      "en": "Wound suturing"
+     },
+     "p": "0,3–0,7"
+    },
+    {
+     "t": {
+      "ru": "Вскрытие абсцесса, фурункула",
+      "uz": "Abssess, furunkulni ochish",
+      "en": "Abscess / boil drainage"
+     },
+     "p": "0,5–1,5"
+    },
+    {
+     "t": {
+      "ru": "Вскрытие панариция",
+      "uz": "Panaritsiyni ochish",
+      "en": "Panaritium drainage"
+     },
+     "p": "0,3–0,7"
+    },
+    {
+     "t": {
+      "ru": "Удаление липомы",
+      "uz": "Lipomani olib tashlash",
+      "en": "Lipoma removal"
+     },
+     "p": "0,5–1"
+    },
+    {
+     "t": {
+      "ru": "Удаление атеромы",
+      "uz": "Ateromani olib tashlash",
+      "en": "Atheroma removal"
+     },
+     "p": "0,3–2"
+    },
+    {
+     "t": {
+      "ru": "Удаление вросшего ногтя",
+      "uz": "O‘sib kirgan tirnoqni olib tashlash",
+      "en": "Ingrown nail removal"
+     },
+     "p": "0,3–1"
+    },
+    {
+     "t": {
+      "ru": "Биопсия мягких тканей",
+      "uz": "Yumshoq to‘qima biopsiyasi",
+      "en": "Soft tissue biopsy"
+     },
+     "p": "0,7–2"
+    },
+    {
+     "t": {
+      "ru": "Пункция гематомы",
+      "uz": "Gematoma punksiyasi",
+      "en": "Hematoma puncture"
+     },
+     "p": "0,3–0,8"
+    },
+    {
+     "t": {
+      "ru": "Удаление доброкачественного образования кожи",
+      "uz": "Teridagi xavfsiz o‘smani olib tashlash",
+      "en": "Benign skin lesion removal"
+     },
+     "p": "0,5–2"
+    },
+    {
+     "t": {
+      "ru": "Послеоперационный осмотр",
+      "uz": "Operatsiyadan keyingi ko‘rik",
+      "en": "Post-operative check-up"
+     },
+     "p": "0,1–0,2"
+    },
+    {
+     "t": {
+      "ru": "Домашний выезд хирурга",
+      "uz": "Jarrohni uyga chaqirish",
+      "en": "Surgeon home visit"
+     },
+     "p": "0,5"
+    }
+   ]
+  },
+  {
+   "cat": {
+    "uz": "Laparoskopik urologiya",
+    "ru": "Лапароскопическая урология",
+    "en": "Laparoscopic urology"
+   },
+   "items": [
+    {
+     "t": {
+      "ru": "Диагностическая лапароскопия",
+      "uz": "Diagnostik laparoskopiya",
+      "en": "Diagnostic laparoscopy"
+     },
+     "p": "6,5"
+    },
+    {
+     "t": {
+      "ru": "Лапароскопическая варикоцелэктомия",
+      "uz": "Laparoskopik varikotselektomiya",
+      "en": "Laparoscopic varicocelectomy"
+     },
+     "p": "7,65"
+    },
+    {
+     "t": {
+      "ru": "Лапароскопическая двусторонняя варикоцелэктомия",
+      "uz": "Ikki tomonlama laparoskopik varikotselektomiya",
+      "en": "Bilateral laparoscopic varicocelectomy"
+     },
+     "p": "8,96"
+    },
+    {
+     "t": {
+      "ru": "Лапароскопическая уретеролитотомия",
+      "uz": "Laparoskopik ureterolitotomiya",
+      "en": "Laparoscopic ureterolithotomy"
+     },
+     "p": "8,9"
+    },
+    {
+     "t": {
+      "ru": "Лапароскопическая кистэктомия почки",
+      "uz": "Buyrak kistasini laparoskopik olib tashlash",
+      "en": "Laparoscopic renal cystectomy"
+     },
+     "p": "9,8"
+    },
+    {
+     "t": {
+      "ru": "Лапароскопическая пиелопластика",
+      "uz": "Laparoskopik pieloplastika",
+      "en": "Laparoscopic pyeloplasty"
+     },
+     "p": "10,5"
+    },
+    {
+     "t": {
+      "ru": "Лапароскопическая нефрэктомия (простая)",
+      "uz": "Laparoskopik nefrektomiya (oddiy)",
+      "en": "Laparoscopic nephrectomy (simple)"
+     },
+     "p": "10,5"
+    },
+    {
+     "t": {
+      "ru": "Лапароскопическая геминефроуретерэктомия",
+      "uz": "Laparoskopik geminefroureterektomiya",
+      "en": "Laparoscopic heminephroureterectomy"
+     },
+     "p": "12,05"
+    },
+    {
+     "t": {
+      "ru": "Лапароскопическая геминефрэктомия",
+      "uz": "Laparoskopik geminefrektomiya",
+      "en": "Laparoscopic heminephrectomy"
+     },
+     "p": "12,55"
+    },
+    {
+     "t": {
+      "ru": "Лапароскопическая адреналэктомия",
+      "uz": "Laparoskopik adrenalektomiya",
+      "en": "Laparoscopic adrenalectomy"
+     },
+     "p": "12,35"
+    },
+    {
+     "t": {
+      "ru": "Радикальная лапароскопическая нефрэктомия",
+      "uz": "Radikal laparoskopik nefrektomiya",
+      "en": "Radical laparoscopic nephrectomy"
+     },
+     "p": "16,75"
+    },
+    {
+     "t": {
+      "ru": "Парциальная лапароскопическая нефрэктомия",
+      "uz": "Qisman laparoskopik nefrektomiya",
+      "en": "Partial laparoscopic nephrectomy"
+     },
+     "p": "18,75"
+    },
+    {
+     "t": {
+      "ru": "Лапароскопическая нефроуретерэктомия",
+      "uz": "Laparoskopik nefroureterektomiya",
+      "en": "Laparoscopic nephroureterectomy"
+     },
+     "p": "18"
+    }
+   ]
+  }
+ ]
+}

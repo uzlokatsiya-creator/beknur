@@ -1,0 +1,16 @@
+[build]
+  publish = "site"
+  functions = "netlify/functions"
+
+# The admin page is never cached and never indexed
+[[headers]]
+  for = "/admin-ismati/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+    Cache-Control = "no-store"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"

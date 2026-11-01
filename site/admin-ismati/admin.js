@@ -1,10 +1,10 @@
 (() => {
 const LANGS = ["uz", "ru", "en"], E = () => ({ uz: "", ru: "", en: "" });
-const TABS = { main: "Matnlar", photos: "Rasmlar", diplomas: "Diplomlar", services: "Xizmatlar", prices: "Narxlar", reviews: "Sharhlar", about: "Ta’lim va raqamlar", contacts: "Aloqa", seo: "SEO va reklama" };
-const TS = { main: "Saytdagi asosiy matnlar — 3 tilda", photos: "Portret, “Shifokor haqida” rasmi va galereya", diplomas: "Diplom va sertifikat rasmlari", services: "Xizmat kartalari (formada ham chiqadi)", prices: "Narxlar katalogi", reviews: "Bemorlar sharhlari va clinics.uz havolasi", about: "Ta’lim tarixi, raqamlar, ish bosqichlari", contacts: "Telefon, Telegram, Instagram, manzil", seo: "Google sarlavhalari, Google Analytics va Google Ads" };
+const TABS = { main: "Matnlar", photos: "Rasmlar", diplomas: "Diplomlar", services: "Xizmatlar", videos: "Videolar", prices: "Narxlar", reviews: "Sharhlar", about: "Ta’lim va raqamlar", contacts: "Aloqa", seo: "SEO va reklama" };
+const TS = { main: "Saytdagi asosiy matnlar — 3 tilda", photos: "Portret, “Shifokor haqida” rasmi va galereya", diplomas: "Diplom va sertifikat rasmlari", services: "Har bir xizmatning alohida sahifasi: matn, faktlar, turlar, narx, videolar", videos: "Bosh sahifadagi umumiy videolar (YouTube)", prices: "Narxlar katalogi", reviews: "Bemorlar sharhlari va clinics.uz havolasi", about: "Ta’lim tarixi, raqamlar, ish bosqichlari", contacts: "Telefon, Telegram, Instagram, manzil", seo: "Google sarlavhalari, Google Analytics va Google Ads" };
 const TI = {
   main: '<path d="M4 6h16M4 12h16M4 18h10"/>', photos: '<rect x="3" y="5" width="18" height="14" rx="3"/><circle cx="9" cy="10" r="2"/><path d="M21 16l-5-5-9 8"/>',
-  diplomas: '<rect x="3" y="4" width="18" height="13" rx="2"/><circle cx="12" cy="17" r="3"/><path d="M10.5 19.5L10 22l2-1 2 1-.5-2.5"/>', services: '<path d="M12 3c-4 0-6 3.5-6 8 0 5 3 9 6 9s6-4 6-9c0-4.5-2-8-6-8z"/>',
+  diplomas: '<rect x="3" y="4" width="18" height="13" rx="2"/><circle cx="12" cy="17" r="3"/><path d="M10.5 19.5L10 22l2-1 2 1-.5-2.5"/>', services: '<path d="M12 3c-4 0-6 3.5-6 8 0 5 3 9 6 9s6-4 6-9c0-4.5-2-8-6-8z"/>', videos: '<rect x="2" y="5" width="20" height="14" rx="4"/><path d="M10 9l5 3-5 3z"/>',
   prices: '<path d="M20 12l-8 8-9-9V3h8z"/><circle cx="7.5" cy="7.5" r="1.5"/>', reviews: '<path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/>',
   about: '<path d="M12 4l10 5-10 5L2 9z"/><path d="M6 11v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5"/>', contacts: '<path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2"/>',
   seo: '<circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/>',
@@ -23,6 +23,9 @@ const tri = (path, o, long) => `<div class="tri">${LANGS.map((l) => `<div><small
 const inp = (path, v, ph = "") => `<input data-s="${path}" value="${esc(v)}" placeholder="${esc(ph)}">`;
 const del = (p) => `<button class="b sm d" data-del="${p}">O‘chirish</button>`;
 const mv = (p, i) => `<button class="b sm" data-mv="${p}:${i}:-1" title="Yuqoriga">↑</button><button class="b sm" data-mv="${p}:${i}:1" title="Pastga">↓</button>`;
+let openSvc = -1;
+const ytId = (v) => { const m = String(v || "").match(/(?:youtu\.be\/|shorts\/|embed\/|v=|^)([\w-]{11})(?:[?&#/]|$)/); return m ? m[1] : ""; };
+const vidList = (p, ids, obj) => `<div class="gal">${ids.map((id, j) => `<div class="box"><img src="https://i.ytimg.com/vi/${esc(id)}/hqdefault.jpg" alt=""><p class="hint">${esc(id)}</p><div class="row">${mv(p, j)}${del(p + "." + j)}</div></div>`).join("")}</div><label>YouTube havolasini qo‘shish (shorts yoki oddiy video)</label><div class="row"><input data-vadd="${p}" data-obj="${obj ? 1 : ""}" placeholder="https://youtube.com/shorts/..."><button class="b sm" data-vbtn="${p}">Qo‘shish</button></div>`;
 const box = (inner, p, i) => `<div class="box">${inner}<div class="row">${mv(p, i)}${del(p + "." + i)}</div></div>`;
 
 function render() {
@@ -36,7 +39,18 @@ function render() {
     <div class="card"><h2>“Shifokor haqida” rasmi</h2><div class="thumbs">${S.aboutPhoto ? `<img src="${esc(S.aboutPhoto)}">` : ""}</div><label>Yangi rasm</label><input type="file" accept="image/*" data-up="aboutPhoto"></div>
     <div class="card"><h2>Galereya</h2><label>Rasm qo‘shish (bir nechtasini tanlash mumkin)</label><input type="file" accept="image/*" multiple data-up="gallery"><div class="gal" style="margin-top:14px">${S.gallery.map((g, i) => box(`<img src="${esc(g.url)}"><label>Izoh</label>${tri("gallery." + i + ".c", g.c)}`, "gallery", i)).join("")}</div></div>`;
   if (tab === "diplomas") h = `<div class="card"><label>Diplom yoki sertifikat rasmini qo‘shish</label><input type="file" accept="image/*" multiple data-up="diplomas"><div class="gal" style="margin-top:14px">${S.diplomas.map((d, i) => box(`<img src="${esc(d.thumb || d.url)}"><label>Nomi</label>${tri("diplomas." + i + ".c", d.c)}`, "diplomas", i)).join("")}</div></div>`;
-  if (tab === "services") h = `<div class="card">${S.services.map((s, i) => box(`<label>Nomi</label>${tri("services." + i + ".t", s.t)}<label>Qisqa tavsif</label>${tri("services." + i + ".d", s.d)}<label>Ikonka</label><select data-s="services.${i}.g">${[["up", "Ko‘z"], ["face", "Yuz"], ["nose", "Burun"], ["body", "Tana"], ["con", "Tibbiy belgi"]].map(([v, n]) => `<option value="${v}"${s.g === v ? " selected" : ""}>${n}</option>`).join("")}</select>`, "services", i)).join("")}<button class="b" data-add="services">+ Xizmat qo‘shish</button></div>`;
+  if (tab === "services") h = `<div class="card"><p class="hint">Har bir xizmat saytda alohida sahifa bo‘ladi: <b>/xizmatlar/&lt;manzil&gt;</b>. Bo‘limni ochish uchun nomini bosing.</p>${S.services.map((s, i) => { s.facts = s.facts || {}; s.types = s.types || []; s.items = s.items || []; s.videos = s.videos || []; return `<details class="box" ${openSvc === i ? "open" : ""} data-svc="${i}"><summary style="cursor:pointer;font-weight:600;font-size:16px">${esc(s.t?.uz || s.t?.ru || "Yangi xizmat")} <span class="hint">/xizmatlar/${esc(s.slug || "")}</span></summary>
+    <label>Sahifa manzili (lotin harflari, tire bilan)</label>${inp("services." + i + ".slug", s.slug, "blefaroplastika")}
+    <label>Nomi</label>${tri("services." + i + ".t", s.t)}<label>Qisqa tavsif (karta)</label>${tri("services." + i + ".d", s.d)}
+    <label>Ikonka</label><select data-s="services.${i}.g">${[["up", "Ko‘z"], ["face", "Yuz"], ["nose", "Burun"], ["body", "Tana"], ["con", "Tibbiy belgi"]].map(([v, n]) => `<option value="${v}"${s.g === v ? " selected" : ""}>${n}</option>`).join("")}</select>
+    <label>Shior (sahifa tepasida)</label>${tri("services." + i + ".tag", s.tag)}
+    <label>“Operatsiya haqida” matni (yangi xatboshi — yangi qatordan)</label>${tri("services." + i + ".about", s.about, 1)}
+    <h2 style="margin-top:18px">Faktlar</h2>${[["anest", "Anesteziya"], ["dur", "Davomiyligi"], ["rehab", "Tiklanish"], ["result", "Natija"]].map(([k, n]) => { s.facts[k] = s.facts[k] || E(); return `<label>${n}</label>${tri(`services.${i}.facts.${k}`, s.facts[k])}`; }).join("")}
+    <h2 style="margin-top:18px">Turlari</h2>${s.types.map((t, j) => box(`<label>Nomi</label>${tri(`services.${i}.types.${j}.t`, t.t)}<label>Tavsif</label>${tri(`services.${i}.types.${j}.d`, t.d)}`, `services.${i}.types`, j)).join("")}<button class="b sm" data-add="services.${i}.types">+ Tur qo‘shish</button>
+    <h2 style="margin-top:18px">Narxlar (sahifadagi narx kartasi)</h2><p class="hint">“dan” narxi eng kichik raqamdan avtomatik hisoblanadi.</p>${s.items.map((x, j) => box(`<label>Xizmat</label>${tri(`services.${i}.items.${j}.t`, x.t)}<label>Narx (mln so‘m)</label>${inp(`services.${i}.items.${j}.p`, x.p)}`, `services.${i}.items`, j)).join("")}<button class="b sm" data-add="services.${i}.items">+ Narx qo‘shish</button>
+    <h2 style="margin-top:18px">Videolar</h2>${vidList(`services.${i}.videos`, s.videos)}
+    <div class="row" style="margin-top:16px">${s.slug ? `<a class="b sm" href="/xizmatlar/${esc(s.slug)}" target="_blank" rel="noopener">Sahifani ochish ↗</a>` : ""}${mv("services", i)}${del("services." + i)}</div></details>`; }).join("")}<button class="b p" data-add="services">+ Yangi xizmat</button></div>`;
+  if (tab === "videos") { S.videos = S.videos || []; h = `<div class="card"><p class="hint">Bosh sahifadagi “Videolar” bo‘limi. Xizmatga oid videolarni “Xizmatlar” bo‘limida har bir xizmat ichiga qo‘shing.</p>${vidList("videos", S.videos.map((v) => v.id), true)}</div>`; }
   if (tab === "prices") h = S.prices.map((p, i) => `<div class="card"><label>Bo‘lim nomi</label>${tri("prices." + i + ".cat", p.cat)}${p.items.map((x, j) => `<div class="box"><label>Xizmat</label>${tri(`prices.${i}.items.${j}.t`, x.t)}<label>Narx (mln so‘m, masalan: 3–4 yoki 0,15)</label>${inp(`prices.${i}.items.${j}.p`, x.p)}<div class="row">${mv(`prices.${i}.items`, j)}${del(`prices.${i}.items.${j}`)}</div></div>`).join("")}<div class="row"><button class="b" data-add="prices.${i}.items">+ Xizmat</button>${mv("prices", i)}${del("prices." + i)}</div></div>`).join("") + `<div class="card"><button class="b p" data-add="prices">+ Yangi bo‘lim</button></div>`;
   if (tab === "reviews") h = `<div class="card"><h2>clinics.uz</h2><label>Sharhlar soni</label>${inp("reviews.count", S.reviews.count)}<label>Sharhlar sahifasi havolasi</label>${inp("reviews.url", S.reviews.url)}</div>
     <div class="card"><h2>Saytda ko‘rinadigan sharhlar</h2><p class="hint">Faqat haqiqiy bemorlar sharhlarini qo‘ying.</p>${S.reviews.list.map((r, i) => box(`<label>Ism</label>${inp(`reviews.list.${i}.name`, r.name)}<label>Sana</label>${inp(`reviews.list.${i}.date`, r.date, "01.10.2026")}<label>Baho (1–5)</label>${inp(`reviews.list.${i}.rating`, r.rating)}<label>Sharh matni</label><textarea data-s="reviews.list.${i}.text">${esc(r.text)}</textarea>`, "reviews.list", i)).join("")}<button class="b" data-add="reviews.list">+ Sharh qo‘shish</button></div>`;
@@ -50,6 +64,9 @@ function render() {
 }
 
 const NEW = { services: () => ({ t: E(), d: E(), g: "con" }), stats: () => ({ v: "", l: E() }), steps: () => ({ t: E(), d: E() }), prices: () => ({ cat: E(), items: [] }), edu: () => ({ y: "", t: E(), d: E() }), "reviews.list": () => ({ name: "", date: "", rating: 5, text: "" }) };
+const NEWX = (p) => /\.types$/.test(p) ? { t: E(), d: E() } : /\.items$/.test(p) ? { t: E(), p: "" } : NEW[p] ? NEW[p]() : null;
+function keepOpen(p) { const m = /^services\.(\d+)\./.exec(p + "."); openSvc = m && p !== "services" ? +m[1] : -1; }
+document.addEventListener("toggle", (e) => { if (e.target.dataset && e.target.dataset.svc && e.target.open) openSvc = +e.target.dataset.svc; }, true);
 document.addEventListener("input", (e) => {
   const el = e.target;
   if (el.dataset.p) { get(el.dataset.p)[el.dataset.l] = el.value; mark(); }
@@ -60,9 +77,10 @@ document.addEventListener("change", (e) => { if (e.target.tagName === "SELECT" &
 document.addEventListener("click", (e) => {
   const b = e.target.closest("button"); if (!b) return;
   if (b.dataset.tab) { tab = b.dataset.tab; render(); scrollTo(0, 0); return; }
-  if (b.dataset.del) { if (!confirm("O‘chirilsinmi?")) return; const k = b.dataset.del.split("."); get(k.slice(0, -1).join(".")).splice(+k.at(-1), 1); mark(); render(); }
-  if (b.dataset.add) { const p = b.dataset.add; get(p).push(/\.items$/.test(p) ? { t: E(), p: "" } : NEW[p]()); mark(); render(); }
-  if (b.dataset.mv) { const [p, i, d] = b.dataset.mv.split(":"), a = get(p), j = +i + +d; if (j >= 0 && j < a.length) { [a[i], a[j]] = [a[j], a[i]]; mark(); render(); } }
+  if (b.dataset.del) { if (!confirm("O‘chirilsinmi?")) return; const k = b.dataset.del.split("."); keepOpen(b.dataset.del); get(k.slice(0, -1).join(".")).splice(+k.at(-1), 1); mark(); render(); }
+  if (b.dataset.add) { const p = b.dataset.add; const n = p === "services" ? { slug: "", t: E(), d: E(), g: "con", tag: E(), about: E(), facts: {}, types: [], items: [], videos: [] } : NEWX(p); if (!n) return; get(p).push(n); keepOpen(p); mark(); render(); }
+  if (b.dataset.vbtn) { const p = b.dataset.vbtn, el = document.querySelector(`[data-vadd="${p}"]`), id = ytId(el.value.trim()); if (!id) { alert("YouTube havolasi noto‘g‘ri"); return; } get(p).push(el.dataset.obj ? { id } : id); keepOpen(p); mark(); render(); }
+  if (b.dataset.mv) { const [p, i, d] = b.dataset.mv.split(":"), a = get(p), j = +i + +d; if (j >= 0 && j < a.length) { [a[i], a[j]] = [a[j], a[i]]; keepOpen(p); mark(); render(); } }
 });
 document.addEventListener("change", async (e) => {
   const el = e.target; if (!el.dataset.up) return; const k = el.dataset.up;

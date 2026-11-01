@@ -31,6 +31,23 @@
     $$(".pcat").forEach((p) => { const show = c === "-1" || p.dataset.c === c; p.hidden = !show; if (show && c !== "-1") p.open = true; });
   }));
 
+  // YouTube: load the player only when clicked (fast pages)
+  d.addEventListener("click", (e) => {
+    const y = e.target.closest(".yt[data-yt]"); if (!y || $("iframe", y)) return;
+    const f = d.createElement("iframe");
+    f.src = "https://www.youtube-nocookie.com/embed/" + y.dataset.yt + "?autoplay=1&playsinline=1&rel=0";
+    f.allow = "autoplay; encrypted-media; picture-in-picture; fullscreen"; f.allowFullscreen = true; f.title = "YouTube";
+    y.appendChild(f); gtag("event", "video_play", { video_id: y.dataset.yt });
+  });
+
+  // procedure stages: line fills while scrolling
+  const tl = $("#tl");
+  if (tl) {
+    const bar = $(".tlbar span", tl), lis = $$("li", tl);
+    const upd = () => { const r = tl.getBoundingClientRect(), p = Math.min(1, Math.max(0, (innerHeight * 0.65 - r.top) / r.height)); bar.style.setProperty("--p", p); lis.forEach((li) => li.classList.toggle("on", li.getBoundingClientRect().top < innerHeight * 0.65)); };
+    addEventListener("scroll", upd, { passive: true }); upd();
+  }
+
   // reviews: tap to expand
   $$(".rev").forEach((r) => r.addEventListener("click", () => r.classList.toggle("open")));
 

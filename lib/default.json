@@ -170,6 +170,46 @@
    "uz": "Ma’lumotlaringizni qoldiring — siz bilan bog‘lanamiz.",
    "ru": "Оставьте контакты — мы перезвоним.",
    "en": "Leave your details and we will call you back."
+  },
+  "vidH": {
+   "uz": "Videolar",
+   "ru": "Видео",
+   "en": "Videos"
+  },
+  "svcAll": {
+   "uz": "Barcha xizmatlar",
+   "ru": "Все услуги",
+   "en": "All services"
+  },
+  "about1": {
+   "uz": "Operatsiya haqida",
+   "ru": "Об операции",
+   "en": "About the procedure"
+  },
+  "typesH": {
+   "uz": "Turlari",
+   "ru": "Виды",
+   "en": "Types"
+  },
+  "faqH": {
+   "uz": "Qisqacha savol-javob",
+   "ru": "Коротко о процедуре",
+   "en": "Quick answers"
+  },
+  "priceH": {
+   "uz": "Operatsiya narxi",
+   "ru": "Стоимость операции",
+   "en": "Procedure price"
+  },
+  "relH": {
+   "uz": "Boshqa xizmatlar",
+   "ru": "Вам также может быть интересно",
+   "en": "You may also like"
+  },
+  "stepsSvcH": {
+   "uz": "Bosqichlar",
+   "ru": "Этапы процедуры",
+   "en": "Procedure stages"
   }
  },
  "stats": [
@@ -200,19 +240,123 @@
  ],
  "services": [
   {
+   "slug": "blefaroplastika",
+   "g": "up",
    "t": {
     "uz": "Blefaroplastika",
     "ru": "Блефаропластика",
     "en": "Blepharoplasty"
    },
    "d": {
-    "uz": "Yuqori, pastki va aylana ko‘z qovoqlari plastikasi",
+    "uz": "Yuqori, pastki va aylana qovoq plastikasi",
     "ru": "Верхняя, нижняя и круговая пластика век",
     "en": "Upper, lower and circular eyelid surgery"
    },
-   "g": "up"
+   "tag": {
+    "uz": "Charchagan nigohdan xalos bo‘ling — ko‘zlar ochiq va yosh ko‘rinsin.",
+    "ru": "Уберите усталость из взгляда — глаза выглядят открытыми и молодыми.",
+    "en": "Remove the tired look — eyes appear open and younger."
+   },
+   "about": {
+    "uz": "Blefaroplastika — qovoqlardagi ortiqcha teri va yog‘ to‘qimasini olib tashlab, «charchagan nigoh»ni yo‘qotadigan operatsiya. Choklar qovoqning tabiiy burmasida yashirinadi.\nOperatsiyadan oldin konsultatsiyada ko‘rik o‘tkaziladi va har bir bemor uchun individual reja tuziladi.",
+    "ru": "Блефаропластика — операция, которая убирает избыток кожи и жировые грыжи век и устраняет «усталый взгляд». Швы скрываются в естественной складке века.\nПеред операцией проводится консультация и осмотр, план составляется индивидуально.",
+    "en": "Blepharoplasty removes excess eyelid skin and fat pads and eliminates the “tired look”. Scars are hidden in the natural eyelid crease.\nA consultation and examination come first, and the plan is tailored to each patient."
+   },
+   "facts": {
+    "anest": {
+     "uz": "Mahalliy / umumiy",
+     "ru": "Местная / общая",
+     "en": "Local / general"
+    },
+    "dur": {
+     "uz": "1–2 soat",
+     "ru": "1–2 часа",
+     "en": "1–2 hours"
+    },
+    "rehab": {
+     "uz": "7–14 kun",
+     "ru": "7–14 дней",
+     "en": "7–14 days"
+    },
+    "result": {
+     "uz": "Uzoq muddatli",
+     "ru": "Долгосрочный",
+     "en": "Long-lasting"
+    }
+   },
+   "types": [
+    {
+     "t": {
+      "uz": "Yuqori blefaroplastika",
+      "ru": "Верхняя блефаропластика",
+      "en": "Upper blepharoplasty"
+     },
+     "d": {
+      "uz": "Yuqori qovoqdagi ortiqcha teri olib tashlanadi, nigoh ochiladi.",
+      "ru": "Удаляется избыток кожи верхнего века, взгляд становится открытым.",
+      "en": "Excess upper-lid skin is removed for a more open look."
+     }
+    },
+    {
+     "t": {
+      "uz": "Pastki blefaroplastika",
+      "ru": "Нижняя блефаропластика",
+      "en": "Lower blepharoplasty"
+     },
+     "d": {
+      "uz": "Ko‘z ostidagi «xaltachalar» va ortiqcha teri bartaraf etiladi.",
+      "ru": "Устраняются «мешки» под глазами и избыток кожи.",
+      "en": "Under-eye bags and excess skin are corrected."
+     }
+    },
+    {
+     "t": {
+      "uz": "Aylana blefaroplastika",
+      "ru": "Круговая блефаропластика",
+      "en": "Upper and lower blepharoplasty"
+     },
+     "d": {
+      "uz": "Yuqori va pastki qovoq bir operatsiyada tuzatiladi.",
+      "ru": "Верхние и нижние веки корректируются за одну операцию.",
+      "en": "Upper and lower lids are corrected in one operation."
+     }
+    }
+   ],
+   "items": [
+    {
+     "t": {
+      "ru": "Верхняя блефаропластика",
+      "uz": "Yuqori blefaroplastika",
+      "en": "Upper blepharoplasty"
+     },
+     "p": "3–4"
+    },
+    {
+     "t": {
+      "ru": "Нижняя блефаропластика",
+      "uz": "Pastki blefaroplastika",
+      "en": "Lower blepharoplasty"
+     },
+     "p": "3–4"
+    },
+    {
+     "t": {
+      "ru": "Круговая блефаропластика",
+      "uz": "Aylana blefaroplastika",
+      "en": "Upper and lower blepharoplasty"
+     },
+     "p": "5–8"
+    }
+   ],
+   "videos": [
+    "UWxOCKkAoDg",
+    "uE_f_eXqwD8",
+    "7tTfH3pAPz0"
+   ]
   },
   {
+   "slug": "yuz-plastikasi",
+   "g": "face",
    "t": {
     "uz": "Yuz va bo‘yin tortish",
     "ru": "Подтяжка лица и шеи",
@@ -223,9 +367,81 @@
     "ru": "Омоложение методом SMAS-лифтинга",
     "en": "Rejuvenation with SMAS lift"
    },
-   "g": "face"
+   "tag": {
+    "uz": "Yuz konturini tiklab, tabiiy va dam olgan ko‘rinish.",
+    "ru": "Чёткий контур лица и естественный, отдохнувший вид.",
+    "en": "A defined facial contour and a natural, rested look."
+   },
+   "about": {
+    "uz": "SMAS-lifting — yuz va bo‘yinning chuqur qatlamlarini tortib, osilgan to‘qimalarni joyiga qaytaradigan operatsiya. Natija tabiiy ko‘rinadi, yuz «tortilgan» bo‘lib qolmaydi.\nKerak bo‘lsa, lipofilling (o‘z yog‘ to‘qimasi bilan hajmni tiklash) bilan birga bajariladi.",
+    "ru": "SMAS-лифтинг подтягивает глубокие слои лица и шеи и возвращает опущенные ткани на место. Результат выглядит естественно, без эффекта «натянутого» лица.\nПри необходимости сочетается с липофилингом — восстановлением объёма собственной жировой тканью.",
+    "en": "A SMAS lift tightens the deep layers of the face and neck and lifts sagging tissue back into place for a natural, not “pulled”, result.\nIt can be combined with lipofilling — restoring volume with your own fat."
+   },
+   "facts": {
+    "anest": {
+     "uz": "Umumiy narkoz",
+     "ru": "Общий наркоз",
+     "en": "General anaesthesia"
+    },
+    "dur": {
+     "uz": "3–5 soat",
+     "ru": "3–5 часов",
+     "en": "3–5 hours"
+    },
+    "rehab": {
+     "uz": "2–4 hafta",
+     "ru": "2–4 недели",
+     "en": "2–4 weeks"
+    },
+    "result": {
+     "uz": "Uzoq muddatli",
+     "ru": "Долгосрочный",
+     "en": "Long-lasting"
+    }
+   },
+   "types": [
+    {
+     "t": {
+      "uz": "SMAS-lifting",
+      "ru": "SMAS-лифтинг",
+      "en": "SMAS lift"
+     },
+     "d": {
+      "uz": "Yuzning o‘rta va pastki qismi, bo‘yin konturi.",
+      "ru": "Средняя и нижняя треть лица, контур шеи.",
+      "en": "Mid and lower face, neck contour."
+     }
+    },
+    {
+     "t": {
+      "uz": "Lipofilling",
+      "ru": "Липофилинг",
+      "en": "Lipofilling"
+     },
+     "d": {
+      "uz": "O‘z yog‘ to‘qimasi bilan yuz hajmini tiklash.",
+      "ru": "Восстановление объёма лица собственным жиром.",
+      "en": "Restoring facial volume with your own fat."
+     }
+    }
+   ],
+   "items": [
+    {
+     "t": {
+      "ru": "Подтяжка лица (SMAS)",
+      "uz": "Yuz tortish (SMAS)",
+      "en": "Facelift (SMAS)"
+     },
+     "p": "12–26"
+    }
+   ],
+   "videos": [
+    "7tTfH3pAPz0"
+   ]
   },
   {
+   "slug": "rinoplastika-otoplastika",
+   "g": "nose",
    "t": {
     "uz": "Rinoplastika va otoplastika",
     "ru": "Ринопластика и отопластика",
@@ -236,9 +452,81 @@
     "ru": "Коррекция формы носа и ушей",
     "en": "Reshaping of nose and ears"
    },
-   "g": "nose"
+   "tag": {
+    "uz": "Yuz uyg‘unligi — burun va quloqlarning tabiiy shakli.",
+    "ru": "Гармония лица — естественная форма носа и ушей.",
+    "en": "Facial harmony — a natural shape of the nose and ears."
+   },
+   "about": {
+    "uz": "Rinoplastika burun shakli va o‘lchamini, otoplastika esa chiqib turgan quloqlarni to‘g‘rilaydi. Otoplastika bolalarga ham qilinadi va ularni masxaralardan, ruhiy bosimdan xalos qiladi.\nOperatsiya rejasi yuz proporsiyalariga qarab individual tuziladi.",
+    "ru": "Ринопластика корректирует форму и размер носа, отопластика — оттопыренные уши. Отопластику делают и детям: она избавляет ребёнка от насмешек и психологического груза.\nПлан операции строится индивидуально по пропорциям лица.",
+    "en": "Rhinoplasty reshapes the nose; otoplasty corrects protruding ears. Otoplasty is also done for children and spares them teasing and stress.\nThe plan is based on each patient’s facial proportions."
+   },
+   "facts": {
+    "anest": {
+     "uz": "Mahalliy / umumiy",
+     "ru": "Местная / общая",
+     "en": "Local / general"
+    },
+    "dur": {
+     "uz": "1–3 soat",
+     "ru": "1–3 часа",
+     "en": "1–3 hours"
+    },
+    "rehab": {
+     "uz": "1–3 hafta",
+     "ru": "1–3 недели",
+     "en": "1–3 weeks"
+    },
+    "result": {
+     "uz": "Uzoq muddatli",
+     "ru": "Долгосрочный",
+     "en": "Long-lasting"
+    }
+   },
+   "types": [
+    {
+     "t": {
+      "uz": "Rinoplastika",
+      "ru": "Ринопластика",
+      "en": "Rhinoplasty"
+     },
+     "d": {
+      "uz": "Burun shakli, uchi va bel qismini tuzatish.",
+      "ru": "Коррекция формы, кончика и спинки носа.",
+      "en": "Correction of nasal shape, tip and bridge."
+     }
+    },
+    {
+     "t": {
+      "uz": "Otoplastika",
+      "ru": "Отопластика",
+      "en": "Otoplasty"
+     },
+     "d": {
+      "uz": "Chiqib turgan quloqlarni to‘g‘rilash, bolalarga ham.",
+      "ru": "Коррекция оттопыренных ушей, в том числе у детей.",
+      "en": "Correction of protruding ears, including in children."
+     }
+    }
+   ],
+   "items": [
+    {
+     "t": {
+      "ru": "Отопластика",
+      "uz": "Otoplastika",
+      "en": "Otoplasty"
+     },
+     "p": "4–6"
+    }
+   ],
+   "videos": [
+    "uJzMp60BAVM"
+   ]
   },
   {
+   "slug": "kokrak-plastikasi",
+   "g": "body",
    "t": {
     "uz": "Ko‘krak plastikasi",
     "ru": "Пластика груди",
@@ -249,22 +537,228 @@
     "ru": "Увеличение, уменьшение и подтяжка",
     "en": "Augmentation, reduction and lift"
    },
-   "g": "body"
+   "tag": {
+    "uz": "Ko‘krakning chiroyli shakli va o‘ziga ishonch.",
+    "ru": "Красивая форма груди и уверенность в себе.",
+    "en": "A beautiful breast shape and confidence."
+   },
+   "about": {
+    "uz": "Ko‘krak plastikasi implantlar bilan kattalashtirish, tortish (mastopeksiya) va kichraytirishni o‘z ichiga oladi. Erkaklarda ko‘krak kattalashishi (ginekomastiya) ham tuzatiladi.\nImplant va usul konsultatsiyada tana tuzilishiga qarab tanlanadi.",
+    "ru": "Пластика груди включает увеличение имплантами, подтяжку (мастопексию) и уменьшение. Также корректируется увеличение груди у мужчин (гинекомастия).\nИмплант и методика подбираются на консультации по особенностям фигуры.",
+    "en": "Breast surgery covers implant augmentation, lift (mastopexy) and reduction. Male breast enlargement (gynecomastia) is also corrected.\nImplants and technique are chosen at the consultation."
+   },
+   "facts": {
+    "anest": {
+     "uz": "Umumiy narkoz",
+     "ru": "Общий наркоз",
+     "en": "General anaesthesia"
+    },
+    "dur": {
+     "uz": "1,5–3 soat",
+     "ru": "1,5–3 часа",
+     "en": "1.5–3 hours"
+    },
+    "rehab": {
+     "uz": "3–4 hafta",
+     "ru": "3–4 недели",
+     "en": "3–4 weeks"
+    },
+    "result": {
+     "uz": "Uzoq muddatli",
+     "ru": "Долгосрочный",
+     "en": "Long-lasting"
+    }
+   },
+   "types": [
+    {
+     "t": {
+      "uz": "Kattalashtirish",
+      "ru": "Увеличение",
+      "en": "Augmentation"
+     },
+     "d": {
+      "uz": "Implantlar bilan hajm va shakl.",
+      "ru": "Объём и форма с помощью имплантов.",
+      "en": "Volume and shape with implants."
+     }
+    },
+    {
+     "t": {
+      "uz": "Tortish",
+      "ru": "Подтяжка",
+      "en": "Lift"
+     },
+     "d": {
+      "uz": "Tug‘ruq va emizishdan keyin shaklni tiklash.",
+      "ru": "Восстановление формы после родов и кормления.",
+      "en": "Restoring shape after pregnancy and breastfeeding."
+     }
+    },
+    {
+     "t": {
+      "uz": "Kichraytirish",
+      "ru": "Уменьшение",
+      "en": "Reduction"
+     },
+     "d": {
+      "uz": "Og‘irlik va noqulaylikni kamaytirish.",
+      "ru": "Снижение тяжести и дискомфорта.",
+      "en": "Less heaviness and discomfort."
+     }
+    },
+    {
+     "t": {
+      "uz": "Ginekomastiya",
+      "ru": "Гинекомастия",
+      "en": "Gynecomastia"
+     },
+     "d": {
+      "uz": "Erkaklarda ko‘krak kattalashishini tuzatish.",
+      "ru": "Коррекция увеличения груди у мужчин.",
+      "en": "Correction of male breast enlargement."
+     }
+    }
+   ],
+   "items": [
+    {
+     "t": {
+      "ru": "Увеличение груди (с имплантами)",
+      "uz": "Ko‘krakni kattalashtirish (implant bilan)",
+      "en": "Breast augmentation (implants)"
+     },
+     "p": "10–18"
+    },
+    {
+     "t": {
+      "ru": "Подтяжка груди",
+      "uz": "Ko‘krakni tortish",
+      "en": "Breast lift"
+     },
+     "p": "12–18"
+    },
+    {
+     "t": {
+      "ru": "Уменьшение груди",
+      "uz": "Ko‘krakni kichraytirish",
+      "en": "Breast reduction"
+     },
+     "p": "12–19"
+    }
+   ],
+   "videos": [
+    "F6W-6DkG1iA",
+    "IcoOwyS9Epo"
+   ]
   },
   {
+   "slug": "abdominoplastika-liposaksiya",
+   "g": "body",
    "t": {
     "uz": "Abdominoplastika va liposaksiya",
     "ru": "Абдоминопластика и липосакция",
     "en": "Tummy tuck and liposuction"
    },
    "d": {
-    "uz": "Tana konturini tiklash, lipofiling",
+    "uz": "Tana konturini tiklash, lipofilling",
     "ru": "Коррекция контуров тела, липофилинг",
     "en": "Body contouring, lipofilling"
    },
-   "g": "body"
+   "tag": {
+    "uz": "Tekis qorin va aniq tana konturi.",
+    "ru": "Плоский живот и чёткий контур тела.",
+    "en": "A flat stomach and a defined body contour."
+   },
+   "about": {
+    "uz": "Abdominoplastika qorindagi ortiqcha teri («fartuk») va yog‘ni olib tashlaydi, mushaklarni mustahkamlaydi. Liposaksiya esa muammoli zonalardagi yog‘ to‘plamlarini kamaytiradi.\nKo‘pincha tug‘ruq yoki keskin ozishdan keyin qilinadi.",
+    "ru": "Абдоминопластика удаляет избыток кожи («фартук») и жира на животе и укрепляет мышцы. Липосакция уменьшает жировые отложения в проблемных зонах.\nЧасто выполняется после родов или резкого похудения.",
+    "en": "A tummy tuck removes excess skin (the “apron”) and fat and tightens the muscles; liposuction reduces fat in problem areas.\nOften chosen after pregnancy or major weight loss."
+   },
+   "facts": {
+    "anest": {
+     "uz": "Umumiy narkoz",
+     "ru": "Общий наркоз",
+     "en": "General anaesthesia"
+    },
+    "dur": {
+     "uz": "1–4 soat",
+     "ru": "1–4 часа",
+     "en": "1–4 hours"
+    },
+    "rehab": {
+     "uz": "2–4 hafta",
+     "ru": "2–4 недели",
+     "en": "2–4 weeks"
+    },
+    "result": {
+     "uz": "Uzoq muddatli",
+     "ru": "Долгосрочный",
+     "en": "Long-lasting"
+    }
+   },
+   "types": [
+    {
+     "t": {
+      "uz": "Abdominoplastika",
+      "ru": "Абдоминопластика",
+      "en": "Tummy tuck"
+     },
+     "d": {
+      "uz": "Ortiqcha teri olib tashlanadi, mushaklar tikiladi.",
+      "ru": "Удаление лишней кожи и укрепление мышц.",
+      "en": "Excess skin removal and muscle repair."
+     }
+    },
+    {
+     "t": {
+      "uz": "Liposaksiya",
+      "ru": "Липосакция",
+      "en": "Liposuction"
+     },
+     "d": {
+      "uz": "1–2 va undan ko‘p zonadagi yog‘ni kamaytirish.",
+      "ru": "Уменьшение жира в 1–2 и более зонах.",
+      "en": "Fat reduction in one or more areas."
+     }
+    },
+    {
+     "t": {
+      "uz": "Lipofilling",
+      "ru": "Липофилинг",
+      "en": "Lipofilling"
+     },
+     "d": {
+      "uz": "Olingan yog‘ bilan hajmni tiklash.",
+      "ru": "Восстановление объёма собственным жиром.",
+      "en": "Restoring volume with harvested fat."
+     }
+    }
+   ],
+   "items": [
+    {
+     "t": {
+      "ru": "Липосакция (1–2 зоны)",
+      "uz": "Liposaksiya (1–2 zona)",
+      "en": "Liposuction (1–2 areas)"
+     },
+     "p": "2–4"
+    },
+    {
+     "t": {
+      "ru": "Абдоминопластика",
+      "uz": "Abdominoplastika",
+      "en": "Abdominoplasty"
+     },
+     "p": "12–24"
+    }
+   ],
+   "videos": [
+    "tUjQeCKv_Bw",
+    "KT8LegCdF9w"
+   ]
   },
   {
+   "slug": "intim-plastika",
+   "g": "con",
    "t": {
     "uz": "Intim plastika",
     "ru": "Интимная пластика",
@@ -275,9 +769,81 @@
     "ru": "Лабиопластика и эстетическая коррекция",
     "en": "Labiaplasty and aesthetic correction"
    },
-   "g": "con"
+   "tag": {
+    "uz": "Nozik muammoning maxfiy va ehtiyotkor yechimi.",
+    "ru": "Деликатное и конфиденциальное решение.",
+    "en": "A discreet and careful solution."
+   },
+   "about": {
+    "uz": "Intim plastika — tug‘ruqdan keyin yoki tug‘ma o‘zgarishlarda intim zonaning shakli va funksiyasini tiklovchi operatsiyalar. Barcha ma’lumotlar to‘liq maxfiy saqlanadi.",
+    "ru": "Интимная пластика восстанавливает форму и функцию интимной зоны после родов или при врождённых особенностях. Полная конфиденциальность.",
+    "en": "Intimate surgery restores the shape and function of the intimate area after childbirth or with congenital features. Full confidentiality."
+   },
+   "facts": {
+    "anest": {
+     "uz": "Mahalliy / umumiy",
+     "ru": "Местная / общая",
+     "en": "Local / general"
+    },
+    "dur": {
+     "uz": "30 daq – 1,5 soat",
+     "ru": "30 мин – 1,5 часа",
+     "en": "30 min – 1.5 hours"
+    },
+    "rehab": {
+     "uz": "7–14 kun",
+     "ru": "7–14 дней",
+     "en": "7–14 days"
+    },
+    "result": {
+     "uz": "Uzoq muddatli",
+     "ru": "Долгосрочный",
+     "en": "Long-lasting"
+    }
+   },
+   "types": [
+    {
+     "t": {
+      "uz": "Labioplastika",
+      "ru": "Лабиопластика",
+      "en": "Labiaplasty"
+     },
+     "d": {
+      "uz": "Kichik jinsiy lablar shaklini tuzatish.",
+      "ru": "Коррекция формы малых половых губ.",
+      "en": "Reshaping of the labia minora."
+     }
+    },
+    {
+     "t": {
+      "uz": "Kolporafiya",
+      "ru": "Кольпорафия",
+      "en": "Colporrhaphy"
+     },
+     "d": {
+      "uz": "Tug‘ruqdan keyin devorlarni mustahkamlash.",
+      "ru": "Укрепление стенок после родов.",
+      "en": "Wall repair after childbirth."
+     }
+    }
+   ],
+   "items": [
+    {
+     "t": {
+      "ru": "Лабиопластика",
+      "uz": "Labioplastika",
+      "en": "Labiaplasty"
+     },
+     "p": "3–6"
+    }
+   ],
+   "videos": [
+    "SnJx9c-sU7k"
+   ]
   },
   {
+   "slug": "uroginekologiya",
+   "g": "con",
    "t": {
     "uz": "Uroginekologiya",
     "ru": "Урогинекология",
@@ -288,7 +854,99 @@
     "ru": "Недержание мочи, пролапс и хирургия тазового дна",
     "en": "Incontinence, prolapse and pelvic floor surgery"
    },
-   "g": "con"
+   "tag": {
+    "uz": "Qulay va to‘laqonli hayotga qaytish.",
+    "ru": "Возвращение к комфортной и полноценной жизни.",
+    "en": "Back to a comfortable, full life."
+   },
+   "about": {
+    "uz": "Uroginekologiya ayollarda siydik tuta olmaslik, kichik chanoq a’zolari tushishi (prolaps) va tos tubi muammolarini davolaydi. Tashxis uchun UZI va urodinamik tekshiruv o‘tkaziladi.",
+    "ru": "Урогинекология лечит недержание мочи у женщин, опущение органов малого таза (пролапс) и проблемы тазового дна. Для диагностики проводятся УЗИ и уродинамическое исследование.",
+    "en": "Urogynecology treats female urinary incontinence, pelvic organ prolapse and pelvic floor problems. Diagnosis includes ultrasound and urodynamic testing."
+   },
+   "facts": {
+    "anest": {
+     "uz": "Spinal / umumiy",
+     "ru": "Спинальная / общая",
+     "en": "Spinal / general"
+    },
+    "dur": {
+     "uz": "30 daq – 2 soat",
+     "ru": "30 мин – 2 часа",
+     "en": "30 min – 2 hours"
+    },
+    "rehab": {
+     "uz": "1–4 hafta",
+     "ru": "1–4 недели",
+     "en": "1–4 weeks"
+    },
+    "result": {
+     "uz": "Uzoq muddatli",
+     "ru": "Долгосрочный",
+     "en": "Long-lasting"
+    }
+   },
+   "types": [
+    {
+     "t": {
+      "uz": "Stress siydik tuta olmaslik (TVT/TOT)",
+      "ru": "Стрессовое недержание (TVT/TOT)",
+      "en": "Stress incontinence (TVT/TOT)"
+     },
+     "d": {
+      "uz": "Minimal invaziv sling operatsiyasi.",
+      "ru": "Малоинвазивная слинговая операция.",
+      "en": "Minimally invasive sling surgery."
+     }
+    },
+    {
+     "t": {
+      "uz": "Prolapsni tuzatish",
+      "ru": "Коррекция пролапса",
+      "en": "Prolapse repair"
+     },
+     "d": {
+      "uz": "Kolporafiya, sakrospinal fiksatsiya, mesh.",
+      "ru": "Кольпорафия, сакроспинальная фиксация, mesh.",
+      "en": "Colporrhaphy, sacrospinous fixation, mesh."
+     }
+    }
+   ],
+   "items": [
+    {
+     "t": {
+      "ru": "Лечение стрессового недержания мочи (TVT/TOT)",
+      "uz": "Stress siydik tuta olmaslikni davolash (TVT/TOT)",
+      "en": "Stress urinary incontinence treatment (TVT/TOT)"
+     },
+     "p": "4–8"
+    },
+    {
+     "t": {
+      "ru": "Передняя кольпорафия",
+      "uz": "Oldingi kolporafiya",
+      "en": "Anterior colporrhaphy"
+     },
+     "p": "4–8"
+    },
+    {
+     "t": {
+      "ru": "Передняя + задняя кольпорафия",
+      "uz": "Oldingi + orqa kolporafiya",
+      "en": "Anterior + posterior colporrhaphy"
+     },
+     "p": "6–12"
+    },
+    {
+     "t": {
+      "ru": "Сакроспинальная фиксация",
+      "uz": "Sakrospinal fiksatsiya",
+      "en": "Sacrospinous fixation"
+     },
+     "p": "10"
+    }
+   ],
+   "videos": []
   }
  ],
  "steps": [
@@ -1074,5 +1732,32 @@
   "ga4": "",
   "aw": "",
   "awLabel": ""
- }
+ },
+ "videos": [
+  {
+   "id": "nLX1SxwFgY4"
+  },
+  {
+   "id": "Pu2uJNjOluQ"
+  },
+  {
+   "id": "FPfWYcHx6Ag"
+  },
+  {
+   "id": "Kqc_B0RxaZI"
+  },
+  {
+   "id": "l4FBxEl_YbY"
+  },
+  {
+   "id": "J0erwSpf9FE"
+  },
+  {
+   "id": "eOjHQ5kAJfY"
+  }
+ ],
+ "youtube": [
+  "https://www.youtube.com/@odilismati",
+  "https://www.youtube.com/@profilupakofkasi"
+ ]
 }

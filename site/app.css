@@ -468,3 +468,17 @@ h1,h2,h3{margin:0;font-weight:500;letter-spacing:-.035em;line-height:1.05}
 @media (max-width:860px){.cgrid,.bmi{grid-template-columns:1fr}.map{aspect-ratio:4/3}.faq.big .qa p{padding-left:20px}}
 .pbox .orb{z-index:0}.pbox .st,.pbox .tagline{z-index:1}
 @media (max-width:640px){.pbox .orb{width:110px;height:110px;right:-34px;top:-34px}.pbox .tagline{max-width:none}}
+/* v9 fixes */
+.btn{line-height:1.25}
+.btn>span{padding:8px 0}
+.chat{transition:opacity .3s,transform .3s}
+.chat.away{opacity:0;transform:translateY(20px);pointer-events:none}
+@media (max-width:560px){
+  .pick{display:flex;flex-wrap:wrap;gap:6px}
+  .pick label{padding:9px 14px;border-radius:999px;font-size:13.5px}
+  .pick .ic{display:none}
+  .lead textarea{min-height:52px}
+  .contact{padding:20px}
+  .clist{gap:10px}
+}
+.bag.rail{display:flex}.bag.rail .ba{width:220px}

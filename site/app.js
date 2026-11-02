@@ -56,6 +56,10 @@
   const chat = $("#chat");
   if (chat) { const fb = $(".fab", chat); fb.addEventListener("click", () => { const o = !chat.classList.contains("open"); chat.classList.toggle("open", o); fb.setAttribute("aria-expanded", o); if (o) gtag("event", "chat_open"); }); d.addEventListener("click", (e) => { if (!e.target.closest("#chat")) chat.classList.remove("open"); }); }
 
+  // hide the chat button while the booking form is on screen (it would cover the submit button)
+  const leadEl = $("#lead");
+  if (chat && leadEl && "IntersectionObserver" in window) new IntersectionObserver(([e]) => chat.classList.toggle("away", e.isIntersecting), { threshold: 0.15 }).observe(leadEl);
+
   // videos page filter
   $$(".vtabs button").forEach((b) => b.addEventListener("click", () => {
     $$(".vtabs button").forEach((x) => x.classList.toggle("on", x === b));

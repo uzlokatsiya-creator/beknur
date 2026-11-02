@@ -6,7 +6,7 @@
 //   /api/content          GET public content / PUT save (admin)
 //   /api/upload           image upload (admin), served at /uploads/<key>
 import DEFAULT from "./lib/default.json";
-import { renderPage, renderService, LANGS, PATH, svcUrl } from "./lib/render.js";
+import { renderPage, renderService, renderInner, LANGS, PATH, svcUrl, PAGES, pageUrl } from "./lib/render.js";
 import { json, checkAuth, makeToken, dropSession, samePassword, limited, hit, clearHits, tgSend, ids, ip, randHex, same, noKV } from "./lib/util.js";
 
 const SEC = {
@@ -25,7 +25,7 @@ const csp = (nonce) => [
   "font-src https://fonts.gstatic.com",
   `img-src 'self' data: blob: ${G} https://www.google.uz https://i.ytimg.com`,
   `connect-src 'self' ${G}`,
-  "frame-src https://td.doubleclick.net https://www.googletagmanager.com https://www.youtube-nocookie.com",
+  "frame-src https://td.doubleclick.net https://www.googletagmanager.com https://www.youtube-nocookie.com https://www.google.com",
   "frame-ancestors 'none'", "base-uri 'self'", "form-action 'self'", "object-src 'none'",
 ].join("; ");
 const withSec = (res, extra = {}) => { const h = new Headers(res.headers); for (const [k, v] of Object.entries({ ...SEC, ...extra })) h.set(k, v); return new Response(res.body, { status: res.status, headers: h }); };
@@ -39,6 +39,9 @@ async function loadContent(env) {
   for (const k of ["seo", "ads", "reviews", "contacts"]) out[k] = { ...(DEFAULT[k] || {}), ...(saved[k] || {}) };
   if (!Array.isArray(saved.services) || !saved.services.every((s) => s && s.slug)) out.services = DEFAULT.services; // old format -> new service pages
   if (!Array.isArray(saved.videos)) out.videos = DEFAULT.videos;
+  for (const k of ["faq", "hours"]) if (!Array.isArray(saved[k])) out[k] = DEFAULT[k];
+  // keep before/after galleries from defaults if an older save has none
+  out.services = out.services.map((s) => (s.gallery ? s : { ...s, gallery: (DEFAULT.services.find((d) => d.slug === s.slug) || {}).gallery || [] }));
   return out;
 }
 const origin = (req, env) => (env.SITE_URL || new URL(req.url).origin).replace(/\/$/, "");
@@ -161,6 +164,13 @@ export default {
       if (p === "/ru" || p === "/ru/" || p === "/index.html") return Response.redirect(url.origin + "/", 301);
       if (p === "/uz" || p === "/en") return Response.redirect(url.origin + p + "/", 301);
       const lang = p === "/" ? "ru" : p === "/uz/" ? "uz" : p === "/en/" ? "en" : null;
+      const pm = p.match(/^\/(?:(uz|en)\/)?([a-z-]+)\/?$/);
+      if (pm && PAGES.includes(pm[2]) && (req.method === "GET" || req.method === "HEAD")) {
+        if (p.endsWith("/")) return Response.redirect(url.origin + p.slice(0, -1), 301);
+        const L = pm[1] || "ru", nonce = randHex(16);
+        const html = renderInner(await loadContent(env), L, pm[2], { origin: origin(req, env), nonce });
+        return withSec(new Response(html, { headers: { "content-type": "text/html; charset=utf-8", "cache-control": "public, max-age=0, must-revalidate", "content-security-policy": csp(nonce), "content-language": L } }));
+      }
       const sm = p.match(/^\/(?:(uz|en)\/)?xizmatlar\/([a-z0-9-]+)\/?$/);
       if (sm && (req.method === "GET" || req.method === "HEAD")) {
         const L = sm[1] || "ru", nonce = randHex(16);
@@ -179,7 +189,7 @@ export default {
         const o = origin(req, env), day = new Date().toISOString().slice(0, 10);
         const S = await loadContent(env);
         const page = (f) => { const a = LANGS.map((l) => `<xhtml:link rel="alternate" hreflang="${l}" href="${o + f(l)}"/>`).join("") + `<xhtml:link rel="alternate" hreflang="x-default" href="${o + f("ru")}"/>`; return LANGS.map((l) => `<url><loc>${o + f(l)}</loc><lastmod>${day}</lastmod>${a}</url>`).join(""); };
-        const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">${page((l) => PATH[l])}${(S.services || []).filter((s) => /^[a-z0-9-]+$/.test(s.slug || "")).map((s) => page((l) => svcUrl(l, s.slug))).join("")}</urlset>`;
+        const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">${page((l) => PATH[l])}${PAGES.map((k) => page((l) => pageUrl(l, k))).join("")}${(S.services || []).filter((s) => /^[a-z0-9-]+$/.test(s.slug || "")).map((s) => page((l) => svcUrl(l, s.slug))).join("")}</urlset>`;
         return new Response(xml, { headers: { "content-type": "application/xml; charset=utf-8", "cache-control": "public, max-age=3600" } });
       }
       if (p === "/robots.txt") return new Response(`User-agent: *\nAllow: /\nDisallow: /api/\n\nSitemap: ${origin(req, env)}/sitemap.xml\n`, { headers: { "content-type": "text/plain; charset=utf-8" } });

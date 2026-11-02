@@ -48,6 +48,32 @@
     addEventListener("scroll", upd, { passive: true }); upd();
   }
 
+  // services dropdown (touch / keyboard)
+  $$(".dd").forEach((dd) => { const b = $(".ddb", dd); b.addEventListener("click", (e) => { e.stopPropagation(); const o = !dd.classList.contains("open"); dd.classList.toggle("open", o); b.setAttribute("aria-expanded", o); }); });
+  d.addEventListener("click", (e) => { if (!e.target.closest(".dd")) $$(".dd.open").forEach((x) => x.classList.remove("open")); });
+
+  // chat button
+  const chat = $("#chat");
+  if (chat) { const fb = $(".fab", chat); fb.addEventListener("click", () => { const o = !chat.classList.contains("open"); chat.classList.toggle("open", o); fb.setAttribute("aria-expanded", o); if (o) gtag("event", "chat_open"); }); d.addEventListener("click", (e) => { if (!e.target.closest("#chat")) chat.classList.remove("open"); }); }
+
+  // videos page filter
+  $$(".vtabs button").forEach((b) => b.addEventListener("click", () => {
+    $$(".vtabs button").forEach((x) => x.classList.toggle("on", x === b));
+    $$(".vi").forEach((v) => { v.hidden = b.dataset.v !== "*" && !(" " + v.dataset.tags + " ").includes(" " + b.dataset.v + " "); });
+  }));
+
+  // BMI calculator
+  const bmi = $("#bmi");
+  if (bmi) bmi.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const h = parseFloat(String(bmi.h.value).replace(",", ".")) / 100, w = parseFloat(String(bmi.w.value).replace(",", "."));
+    if (!(h > 0.9 && h < 2.4 && w > 25 && w < 350)) return;
+    const v = w / (h * h), i = v < 18.5 ? 0 : v < 25 ? 1 : v < 30 ? 2 : v < 35 ? 3 : 4;
+    $("#bres").hidden = false; $("#bval").textContent = v.toFixed(1).replace(".", d.body.dataset.lang === "en" ? "." : ",");
+    const li = $$(".btab li"); li.forEach((x, k) => x.classList.toggle("on", k === i)); $("#bcat").textContent = $("span", li[i]).textContent;
+    $("#bdot").style.left = Math.min(100, Math.max(0, ((v - 14) / (42 - 14)) * 100)) + "%";
+  });
+
   // reviews: tap to expand
   $$(".rev").forEach((r) => r.addEventListener("click", () => r.classList.toggle("open")));
 

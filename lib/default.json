@@ -210,6 +210,71 @@
    "uz": "Bosqichlar",
    "ru": "Этапы процедуры",
    "en": "Procedure stages"
+  },
+  "priceP": {
+   "uz": "Narxlar taxminiy, so‘mda. Aniq narx konsultatsiyadan keyin belgilanadi.",
+   "ru": "Цены ориентировочные, в сумах. Точная стоимость — после консультации.",
+   "en": "Approximate prices in UZS; the exact price is set after the consultation."
+  },
+  "faqPH": {
+   "uz": "Ko‘p beriladigan savollar",
+   "ru": "Часто задаваемые вопросы",
+   "en": "Frequently asked questions"
+  },
+  "faqPP": {
+   "uz": "Konsultatsiya, narxlar va operatsiya haqida eng ko‘p so‘raladigan savollar.",
+   "ru": "Ответы на популярные вопросы о консультации, ценах и операциях.",
+   "en": "Answers to common questions about consultations, prices and surgery."
+  },
+  "moreQ": {
+   "uz": "Savollaringiz qoldimi?",
+   "ru": "Остались вопросы?",
+   "en": "Still have questions?"
+  },
+  "moreQP": {
+   "uz": "Yozing yoki qo‘ng‘iroq qiling — mutaxassis javob beradi.",
+   "ru": "Напишите или позвоните — специалист ответит.",
+   "en": "Write or call — a specialist will answer."
+  },
+  "vidPH": {
+   "uz": "Videolar",
+   "ru": "Видео",
+   "en": "Videos"
+  },
+  "vidPP": {
+   "uz": "Operatsiyalar, natijalar va shifokor maslahatlari.",
+   "ru": "Операции, результаты и советы врача.",
+   "en": "Operations, results and the doctor’s advice."
+  },
+  "coPH": {
+   "uz": "Aloqa",
+   "ru": "Контакты",
+   "en": "Contacts"
+  },
+  "coPP": {
+   "uz": "Konsultatsiyaga yoziling yoki savolingizni bering.",
+   "ru": "Запишитесь на консультацию или задайте вопрос.",
+   "en": "Book a consultation or ask a question."
+  },
+  "bmiH": {
+   "uz": "IMT kalkulyatori",
+   "ru": "Калькулятор ИМТ",
+   "en": "BMI calculator"
+  },
+  "bmiP": {
+   "uz": "Tana massasi indeksini hisoblang. Natija tibbiy tashxis emas — operatsiyaga mosligingiz konsultatsiyada aniqlanadi.",
+   "ru": "Рассчитайте индекс массы тела. Результат не является диагнозом — показания к операции определяются на консультации.",
+   "en": "Calculate your body mass index. This is not a diagnosis — suitability for surgery is assessed at the consultation."
+  },
+  "galSvc": {
+   "uz": "Natijalar",
+   "ru": "Результаты",
+   "en": "Results"
+  },
+  "whyCo": {
+   "uz": "Maxfiylik",
+   "ru": "Конфиденциальность",
+   "en": "Confidentiality"
   }
  },
  "stats": [
@@ -352,6 +417,98 @@
     "UWxOCKkAoDg",
     "uE_f_eXqwD8",
     "7tTfH3pAPz0"
+   ],
+   "gallery": [
+    {
+     "url": "/assets/ba/blef-1.webp",
+     "thumb": "/assets/ba/blef-1-s.webp",
+     "c": {
+      "uz": "Blefaroplastika natijasi",
+      "ru": "Результат блефаропластики",
+      "en": "Blepharoplasty result"
+     }
+    },
+    {
+     "url": "/assets/ba/blef-2.webp",
+     "thumb": "/assets/ba/blef-2-s.webp",
+     "c": {
+      "uz": "Blefaroplastika natijasi",
+      "ru": "Результат блефаропластики",
+      "en": "Blepharoplasty result"
+     }
+    },
+    {
+     "url": "/assets/ba/blef-3.webp",
+     "thumb": "/assets/ba/blef-3-s.webp",
+     "c": {
+      "uz": "Blefaroplastika natijasi",
+      "ru": "Результат блефаропластики",
+      "en": "Blepharoplasty result"
+     }
+    },
+    {
+     "url": "/assets/ba/blef-4.webp",
+     "thumb": "/assets/ba/blef-4-s.webp",
+     "c": {
+      "uz": "Blefaroplastika natijasi",
+      "ru": "Результат блефаропластики",
+      "en": "Blepharoplasty result"
+     }
+    },
+    {
+     "url": "/assets/ba/blef-5.webp",
+     "thumb": "/assets/ba/blef-5-s.webp",
+     "c": {
+      "uz": "Blefaroplastika natijasi",
+      "ru": "Результат блефаропластики",
+      "en": "Blepharoplasty result"
+     }
+    },
+    {
+     "url": "/assets/ba/blef-6.webp",
+     "thumb": "/assets/ba/blef-6-s.webp",
+     "c": {
+      "uz": "Blefaroplastika natijasi",
+      "ru": "Результат блефаропластики",
+      "en": "Blepharoplasty result"
+     }
+    },
+    {
+     "url": "/assets/ba/blef-7.webp",
+     "thumb": "/assets/ba/blef-7-s.webp",
+     "c": {
+      "uz": "Blefaroplastika natijasi",
+      "ru": "Результат блефаропластики",
+      "en": "Blepharoplasty result"
+     }
+    },
+    {
+     "url": "/assets/ba/blef-8.webp",
+     "thumb": "/assets/ba/blef-8-s.webp",
+     "c": {
+      "uz": "Blefaroplastika natijasi",
+      "ru": "Результат блефаропластики",
+      "en": "Blepharoplasty result"
+     }
+    },
+    {
+     "url": "/assets/ba/blef-9.webp",
+     "thumb": "/assets/ba/blef-9-s.webp",
+     "c": {
+      "uz": "Blefaroplastika natijasi",
+      "ru": "Результат блефаропластики",
+      "en": "Blepharoplasty result"
+     }
+    },
+    {
+     "url": "/assets/ba/blef-10.webp",
+     "thumb": "/assets/ba/blef-10-s.webp",
+     "c": {
+      "uz": "Blefaroplastika natijasi",
+      "ru": "Результат блефаропластики",
+      "en": "Blepharoplasty result"
+     }
+    }
    ]
   },
   {
@@ -437,7 +594,8 @@
    ],
    "videos": [
     "7tTfH3pAPz0"
-   ]
+   ],
+   "gallery": []
   },
   {
    "slug": "rinoplastika-otoplastika",
@@ -522,7 +680,8 @@
    ],
    "videos": [
     "uJzMp60BAVM"
-   ]
+   ],
+   "gallery": []
   },
   {
    "slug": "kokrak-plastikasi",
@@ -648,7 +807,8 @@
    "videos": [
     "F6W-6DkG1iA",
     "IcoOwyS9Epo"
-   ]
+   ],
+   "gallery": []
   },
   {
    "slug": "abdominoplastika-liposaksiya",
@@ -754,7 +914,8 @@
    "videos": [
     "tUjQeCKv_Bw",
     "KT8LegCdF9w"
-   ]
+   ],
+   "gallery": []
   },
   {
    "slug": "intim-plastika",
@@ -839,7 +1000,8 @@
    ],
    "videos": [
     "SnJx9c-sU7k"
-   ]
+   ],
+   "gallery": []
   },
   {
    "slug": "uroginekologiya",
@@ -946,7 +1108,8 @@
      "p": "10"
     }
    ],
-   "videos": []
+   "videos": [],
+   "gallery": []
   }
  ],
  "steps": [
@@ -1759,5 +1922,153 @@
  "youtube": [
   "https://www.youtube.com/@odilismati",
   "https://www.youtube.com/@profilupakofkasi"
+ ],
+ "hours": [
+  {
+   "d": {
+    "uz": "Dushanba",
+    "ru": "Понедельник",
+    "en": "Monday"
+   },
+   "h": "08:30 – 17:00"
+  },
+  {
+   "d": {
+    "uz": "Seshanba",
+    "ru": "Вторник",
+    "en": "Tuesday"
+   },
+   "h": "08:30 – 17:00"
+  },
+  {
+   "d": {
+    "uz": "Chorshanba",
+    "ru": "Среда",
+    "en": "Wednesday"
+   },
+   "h": "08:30 – 17:00"
+  },
+  {
+   "d": {
+    "uz": "Payshanba",
+    "ru": "Четверг",
+    "en": "Thursday"
+   },
+   "h": "08:30 – 17:00"
+  },
+  {
+   "d": {
+    "uz": "Juma",
+    "ru": "Пятница",
+    "en": "Friday"
+   },
+   "h": "08:30 – 17:00"
+  },
+  {
+   "d": {
+    "uz": "Shanba",
+    "ru": "Суббота",
+    "en": "Saturday"
+   },
+   "h": "08:30 – 17:00"
+  }
+ ],
+ "faq": [
+  {
+   "q": {
+    "uz": "Konsultatsiyaga qanday yozilish mumkin?",
+    "ru": "Как записаться на консультацию?",
+    "en": "How do I book a consultation?"
+   },
+   "a": {
+    "uz": "Saytdagi formani to‘ldiring, qo‘ng‘iroq qiling (+998 90 601 71 79) yoki Telegramda yozing — qulay vaqtni kelishib olamiz.",
+    "ru": "Заполните форму на сайте, позвоните (+998 90 601 71 79) или напишите в Telegram — согласуем удобное время.",
+    "en": "Fill in the form, call +998 90 601 71 79 or message us on Telegram and we will agree on a time."
+   }
+  },
+  {
+   "q": {
+    "uz": "Konsultatsiya narxi qancha?",
+    "ru": "Сколько стоит консультация?",
+    "en": "How much is a consultation?"
+   },
+   "a": {
+    "uz": "Plastik jarroh va uroginekolog birlamchi konsultatsiyasi — 150 000 so‘mdan.",
+    "ru": "Первичная консультация пластического хирурга и урогинеколога — 150 000 сум.",
+    "en": "An initial consultation with the plastic surgeon or urogynecologist costs 150,000 UZS."
+   }
+  },
+  {
+   "q": {
+    "uz": "Operatsiya narxi qanday belgilanadi?",
+    "ru": "Как определяется стоимость операции?",
+    "en": "How is the price of surgery set?"
+   },
+   "a": {
+    "uz": "Saytdagi narxlar taxminiy. Aniq narx ko‘rik va konsultatsiyadan keyin, operatsiya hajmiga qarab belgilanadi.",
+    "ru": "Цены на сайте ориентировочные. Точная стоимость определяется после осмотра и консультации, в зависимости от объёма операции.",
+    "en": "Prices on the site are approximate; the exact price is set after the examination, depending on the scope of surgery."
+   }
+  },
+  {
+   "q": {
+    "uz": "Operatsiya qayerda o‘tkaziladi?",
+    "ru": "Где проводятся операции?",
+    "en": "Where are operations performed?"
+   },
+   "a": {
+    "uz": "Samarqand, Shohrux ko‘chasi, 27 — Relax Med Service klinikasi. Klinikada o‘z operatsion bloki va statsionari bor.",
+    "ru": "Самарканд, ул. Шохрух, 27 — клиника Relax Med Service с собственным операционным блоком и стационаром.",
+    "en": "Relax Med Service clinic, 27 Shokhrukh St, Samarkand — with its own operating unit and inpatient ward."
+   }
+  },
+  {
+   "q": {
+    "uz": "Shifokor qaysi kunlari qabul qiladi?",
+    "ru": "В какие дни принимает врач?",
+    "en": "Which days does the doctor see patients?"
+   },
+   "a": {
+    "uz": "Dushanbadan shanbagacha, 08:30 dan 17:00 gacha.",
+    "ru": "С понедельника по субботу, с 08:30 до 17:00.",
+    "en": "Monday to Saturday, 08:30–17:00."
+   }
+  },
+  {
+   "q": {
+    "uz": "Operatsiyaga qanday tayyorlanish kerak?",
+    "ru": "Как подготовиться к операции?",
+    "en": "How do I prepare for surgery?"
+   },
+   "a": {
+    "uz": "Konsultatsiyada kerakli tahlillar ro‘yxati beriladi va operatsiya sanasi belgilanadi. Barcha tavsiyalar individual beriladi.",
+    "ru": "На консультации выдаётся список анализов и назначается дата операции. Все рекомендации даются индивидуально.",
+    "en": "At the consultation you receive a list of tests and a surgery date; all advice is individual."
+   }
+  },
+  {
+   "q": {
+    "uz": "Operatsiyadan keyin shifokor kuzatadimi?",
+    "ru": "Наблюдает ли врач после операции?",
+    "en": "Does the doctor follow up after surgery?"
+   },
+   "a": {
+    "uz": "Ha, tiklanish davrida shifokor nazorati va maslahatlari davom etadi.",
+    "ru": "Да, в период восстановления врач продолжает наблюдение и консультирует.",
+    "en": "Yes, the doctor follows you up and advises during recovery."
+   }
+  },
+  {
+   "q": {
+    "uz": "Shifokorning malakasi qanday?",
+    "ru": "Какая квалификация у врача?",
+    "en": "What are the doctor’s qualifications?"
+   },
+   "a": {
+    "uz": "Tibbiyot fanlari bo‘yicha falsafa doktori (PhD). Sankt-Peterburgda ta’lim olgan, 2021–2022 yillarda plastik jarrohlik bo‘yicha malaka oshirgan.",
+    "ru": "Доктор философии (PhD) по медицинским наукам. Образование — Санкт-Петербург, специализация по пластической хирургии 2021–2022.",
+    "en": "PhD in Medical Sciences, trained in Saint Petersburg, plastic surgery specialisation 2021–2022."
+   }
+  }
  ]
 }

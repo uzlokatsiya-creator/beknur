@@ -78,6 +78,11 @@
     $("#bdot").style.left = Math.min(100, Math.max(0, ((v - 14) / (42 - 14)) * 100)) + "%";
   });
 
+  // arrow buttons for horizontal rails
+  $$(".rwrap").forEach((w) => { const r = $(".rail", w); const step = () => Math.max(200, r.clientWidth * 0.8);
+    $(".prev", w).addEventListener("click", () => r.scrollBy({ left: -step(), behavior: "smooth" }));
+    $(".next", w).addEventListener("click", () => r.scrollBy({ left: step(), behavior: "smooth" })); });
+
   // reviews: tap to expand
   $$(".rev").forEach((r) => r.addEventListener("click", () => r.classList.toggle("open")));
 

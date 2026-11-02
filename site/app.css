@@ -482,3 +482,32 @@ h1,h2,h3{margin:0;font-weight:500;letter-spacing:-.035em;line-height:1.05}
   .clist{gap:10px}
 }
 .bag.rail{display:flex}.bag.rail .ba{width:220px}
+/* v10: easier video swiping, compact form, gallery on top */
+.rail{scroll-snap-type:x proximity}
+.rwrap{position:relative}
+.rarr{position:absolute;top:50%;z-index:4;width:44px;height:44px;margin-top:-22px;border-radius:50%;border:0;background:#fff;color:var(--ink);display:grid;place-items:center;box-shadow:0 8px 24px rgba(0,0,0,.25);cursor:pointer;transition:transform .2s}
+.rarr:active{transform:scale(.92)}
+.rarr svg{width:20px;height:20px}
+.rarr.prev{left:-6px}.rarr.next{right:-6px}
+.vids .yt{width:min(200px,46vw)}
+.yt img{transform:scale(1.33)}
+.yt:hover img{transform:scale(1.4)}
+@media (max-width:860px){
+  .rarr.prev{left:2px}.rarr.next{right:2px}
+  .yplay{width:52px;height:52px;margin:-26px 0 0 -26px}
+}
+@media (max-width:560px){
+  .contact{padding:18px;gap:14px;border-radius:24px}
+  .cinfo .h2{font-size:26px;margin-bottom:4px}
+  .cinfo>p{margin-bottom:12px;font-size:14.5px}
+  .clist{margin-bottom:0;gap:8px;font-size:14.5px}
+  .contact .soc{display:none}
+  .lead{padding:16px;gap:10px;border-radius:20px}
+  .lead .f>span{font-size:12.5px}
+  .lead input{padding:11px 12px}
+  .lead .btn{min-height:50px}
+  .ba{aspect-ratio:4/5}
+  .bag.rail .ba{width:60vw}
+}
+.sgrid>*,.smain,.sblock{min-width:0}
+html,body{max-width:100%}

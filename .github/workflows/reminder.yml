@@ -1,0 +1,26 @@
+name: Telegram eslatmalar
+
+on:
+  schedule:
+    # UTC vaqtida: 03:00 = Toshkent 08:00, 06..17 = Toshkent 11..22
+    - cron: "0 3 * * *"
+    - cron: "0 6-17 * * *"
+  workflow_dispatch:
+    inputs:
+      hour:
+        description: "Sinash uchun soat (masalan 8 yoki 12)"
+        required: false
+
+jobs:
+  send:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Xabar yuborish
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python reminder-bot/send.py ${{ github.event.inputs.hour }}

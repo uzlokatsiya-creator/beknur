@@ -2,7 +2,8 @@
 // Sozlamalar (Worker → Settings → Variables and Secrets):
 //   BOT_TOKEN         — @BotFather bergan token (majburiy)
 //   WEBHOOK_SECRET    — o'zingiz o'ylab topgan maxfiy so'z (majburiy)
-//   ALLOWED_CHAT_ID   — faqat shu chatga javob beradi (ixtiyoriy, tavsiya etiladi)
+//   ALLOWED_CHAT_ID   — sizning chat ID (jadval xabarlari shu chatga boradi, faqat shu chatga javob beradi)
+// Jadval (Settings → Triggers → Cron): "0 3 * * *" va "0 6-17 * * *" (UTC = Toshkent 08:00 va 11:00–22:00)
 //   ANTHROPIC_API_KEY — bo'lsa, Claude aqlli javob yozadi; bo'lmasa tayyor javoblar
 
 const SYSTEM = `Sen mehribon, g'amxo'r do'stsan. Foydalanuvchi bilan o'zbek tilida (lotin yozuvida),
@@ -58,7 +59,36 @@ async function send(env, chatId, text) {
   });
 }
 
+// ---- Jadval bo'yicha xabarlar (Toshkent vaqti) ----
+const MORNING = "Xayrli tong, yaxshimisiz? Yaxshi uxlab turdingizmi? Bugun kuningiz yaxshi o‘tsin. O‘zingizni ehtiyot qiling, xo‘pmi?";
+const DAY = [
+  "Qalaysiz? Ishlaringiz yaxshi ketyaptimi? 😊",
+  "Suv ichishni unutmang, xo‘pmi? 💧",
+  "Ovqatlandingizmi? Vaqtida ovqatlaning, iltimos.",
+  "Biroz dam oling, charchab qolmang. 🌿",
+  "Sizni o‘ylab turibman. Kayfiyatingiz yaxshimi?",
+  "Bugun ham zo‘rsiz! Davom eting 💪",
+  "Bir daqiqa to‘xtab, chuqur nafas oling. Hammasi yaxshi bo‘ladi.",
+  "O‘zingizni ehtiyot qiling, xo‘pmi? ❤️",
+  "Kuningiz qanday o‘tyapti? Hammasi joyidami?",
+  "Ko‘zingizni ekrandan biroz dam oldiring 🙂",
+];
+const NIGHT = "Xayrli tun! Yaxshi dam oling, ertaga yana gaplashamiz 🌙";
+
+function scheduledText(hour) {
+  if (hour === 8) return MORNING;
+  if (hour >= 11 && hour <= 21) return DAY[Math.floor(Math.random() * DAY.length)];
+  if (hour === 22) return NIGHT;
+  return null;
+}
+
 export default {
+  async scheduled(event, env) {
+    const hour = (new Date(event.scheduledTime).getUTCHours() + 5) % 24; // Toshkent
+    const text = scheduledText(hour);
+    if (text && env.ALLOWED_CHAT_ID) await send(env, env.ALLOWED_CHAT_ID, text);
+  },
+
   async fetch(request, env) {
     if (request.method !== "POST") return new Response("Bot ishlayapti ✅");
     if (request.headers.get("X-Telegram-Bot-Api-Secret-Token") !== env.WEBHOOK_SECRET)
